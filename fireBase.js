@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, getAuth} from "firebase/auth";
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyAxcOMq0rvS_EroCrrd9eFsSJu3eiYbaVE",
     authDomain: "bike-the-big-apple-capst-d46ad.firebaseapp.com",
     projectId: "bike-the-big-apple-capst-d46ad",
@@ -34,6 +34,7 @@ export const signInWithGoogle = async () => {
   export const signOut = async () =>{
     try {
       await auth.signOut()
+      console.log("you've signed out - congrats.")
       alert("you've signed out - congrats.")
     } catch(err) {
       console.log(err)
