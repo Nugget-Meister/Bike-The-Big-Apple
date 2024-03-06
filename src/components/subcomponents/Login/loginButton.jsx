@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 import { signInWithGoogle } from "../../../../fireBase";
 import { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import {auth} from "/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/fireBase.js";
-import {firebaseConfig} from "/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/fireBase.js";
+import {auth, firebaseConfig} from "../../../../fireBase";
+// import {firebaseConfig} from "/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/fireBase.js";
 
 // import { useContext } from 'react';
 // import { MyContext } from './MyContext';
