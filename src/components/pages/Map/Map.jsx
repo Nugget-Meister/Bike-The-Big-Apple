@@ -1,14 +1,15 @@
 import './Map.css'
 import React from 'react';
 import MapWidget from './subcomponents/MapWidget';
+import {
+    loadAPI, 
+    renderMap,
+} from './helpers/googleApiCalls.js'
 
-import { Loader } from "@googlemaps/js-api-loader"
 
 const Map = () => {
 
-    const key = import.meta.env.VITE_API_KEY;
- 
-
+    loadAPI().then(() => renderMap())
 
 
     return (

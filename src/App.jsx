@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path={'/'} element={<Splash/>}/>
+          <Route path={'/'} element={<Map/>}/>
           <Route path={'/map'} element={<Map/>}/>
           <Route path={'/profile/:username'} element={<Profile/>}/>
           <Route path={'/saved'} element={<SavedRoutes/>}/>
