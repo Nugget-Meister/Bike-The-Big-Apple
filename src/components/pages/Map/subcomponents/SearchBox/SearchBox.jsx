@@ -6,7 +6,8 @@ const SearchBox = () => {
         <>
             <Input
                 id='autocomplete'
-                placeholder=''
+                placeholder='Enter a place'
+                type='text'
             />
         </>
     );

@@ -7,9 +7,7 @@ const Input = ({id, placeholder, type}) => {
             id={id || null}
             placeholder={placeholder}
             type={type}
-            >
-            
-        </input>
+            />
     );
 }
 

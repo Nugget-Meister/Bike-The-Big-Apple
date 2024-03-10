@@ -6,7 +6,7 @@ import { MyContext } from "./MyContext";
 import Logout from "./components/subcomponents/Login/logoutButton";
 import Login from "./components/subcomponents/Login/loginButton";
 
-// import Navbar from './components/NavBar/navBar'
+import NavBar from './components/NavBar/Navbar'
 import Map from './components/pages/Map/Map'
 import Profile from './components/pages/Profile/Profile'
 import SavedRoutes from './components/pages/SavedRoutes/SavedRoutes'
@@ -20,7 +20,7 @@ function App() {
 
     <>
       <Router>
-        {/* <Navbar /> */}
+        <NavBar />
         <Routes>
           <Route path={'/'} element={<Splash/>}/>
           <Route path={'/map'} element={<Map/>}/>
