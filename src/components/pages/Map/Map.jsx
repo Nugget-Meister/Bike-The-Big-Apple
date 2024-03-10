@@ -23,6 +23,7 @@ const Map = () => {
     return (
       <>
         <SearchBox/>
+        <div id="details">S</div>
         <MapWidget/>
       </>
     );
