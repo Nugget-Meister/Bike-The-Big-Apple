@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../../../common/Input/Input';
+import Input from '../../../../common/Input/Input.jsx';
 
 const SearchBox = () => {
     return (
