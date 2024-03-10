@@ -6,14 +6,23 @@ import {
     renderMap,
 } from './helpers/googleApiCalls.js'
 
+import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
+
+
 
 const Map = () => {
 
-    loadAPI().then(() => renderMap())
+    const loadQueue = () => {
+        renderMap();
 
+    }
+
+
+    // loadAPI().then(() => loadQueue())
 
     return (
       <>
+        <SearchBox/>
         <MapWidget/>
       </>
     );
