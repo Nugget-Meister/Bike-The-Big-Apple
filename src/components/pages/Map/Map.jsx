@@ -7,14 +7,15 @@ import {
 } from './helpers/googleApiCalls.js'
 
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
+import { loadAutoComplete } from './helpers/googleAutoComplete.js';
 
 
 
 const Map = () => {
 
     const loadQueue = () => {
-        renderMap();
-
+        // renderMap();
+        loadAutoComplete()
     }
 
 

@@ -2,8 +2,6 @@ import React from 'react';
 
 
 
-
-
 const loadAutoComplete = async () => {
     const { Places } = await google.maps.importLibrary("places")
 
