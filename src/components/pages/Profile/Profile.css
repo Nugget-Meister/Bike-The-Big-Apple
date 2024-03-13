@@ -1,0 +1,58 @@
+.userInformation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+.profileTextCard {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 10px;
+    width: 1000px;
+    height: 200px;
+    
+
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: .75rem;
+}
+
+.profileTextCardDescription {
+    margin-bottom: 1rem;
+    word-wrap: break-word; 
+}
+
+.savedRoutesButton {
+    color: #fff;
+    background-color: #eb465f ;
+    border-color: #eb465f;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.savedRoutesButton:hover {
+    background-color: #FCffe7;
+    border-color: #FCffe7;
+    color:#000000;
+}
