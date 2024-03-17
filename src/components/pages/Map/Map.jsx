@@ -21,7 +21,7 @@ const Map = () => {
   const [firstLoad, setfirstLoad] = useState(true)
 
   useEffect(() => {
-    console.log(path, firstLoad)
+    console.log("current value: ", path, firstLoad)
     if(!firstLoad){
       console.log("Path updated... Reloading Queue")
       loadQueue()

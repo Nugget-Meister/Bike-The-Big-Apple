@@ -14,7 +14,7 @@ let { Places } = false;
  */
 const loadAutoComplete = async (input_id, target_id, text, state, update ) => {
 
-    
+    // console.log("Entered State: ",state)
     if(!Places){
          Places = await google.maps.importLibrary("places")
     }
@@ -39,8 +39,8 @@ const loadAutoComplete = async (input_id, target_id, text, state, update ) => {
                 document.getElementById(id).placeholder = text;
             } else {
                 // Display details
-                console.log(state)
-                console.log({...state, [input_id]: place})
+                // console.log(state)
+                // console.log({...state, [input_id]: place})
                 update({...state, [input_id]: place})
                 // This should be done in a more react way.
                 document.getElementById(target_id).innerHTML = place.formatted_address;
