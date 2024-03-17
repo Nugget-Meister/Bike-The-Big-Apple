@@ -13,7 +13,7 @@ const Map = () => {
 
     const loadQueue = () => {
         renderMap();
-        loadAutoComplete()
+        loadAutoComplete('autocomplete', 'details', 'Enter starting location.')
     }
 
 
