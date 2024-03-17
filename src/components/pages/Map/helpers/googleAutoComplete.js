@@ -7,8 +7,17 @@ import React from 'react';
  * @param {string} target_id id to send target html to
  */
 
+
+let { Places } = false;
+
+
+
 const loadAutoComplete = async (input_id, target_id, text) => {
-    const { Places } = await google.maps.importLibrary("places")
+
+    if(!Places){
+         Places = await google.maps.importLibrary("places")
+    }
+    // const { Places } = await google.maps.importLibrary("places")
 
 
     let autoComplete = new google.maps.places.Autocomplete(
@@ -37,8 +46,6 @@ const loadAutoComplete = async (input_id, target_id, text) => {
     autoComplete.addListener('place_changed', onPlaceChanged);
     
 }
-
-
 
 
 export {

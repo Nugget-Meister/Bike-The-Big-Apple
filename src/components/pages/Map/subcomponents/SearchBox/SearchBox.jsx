@@ -1,11 +1,11 @@
 import React from 'react';
 import Input from '../../../../common/Input/Input.jsx';
 import './SearchBox.css'
-const SearchBox = () => {
+const SearchBox = ({id}) => {
     return (
         <>
             <Input
-                id='autocomplete'
+                id={id}
                 className='SearchBox'
                 placeholder='Enter a place'
                 type='text'

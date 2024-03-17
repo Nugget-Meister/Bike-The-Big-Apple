@@ -13,7 +13,9 @@ const Map = () => {
 
     const loadQueue = () => {
         renderMap();
-        loadAutoComplete('autocomplete', 'details', 'Enter starting location.')
+        loadAutoComplete('start', 'start_details', 'Enter starting location.')
+        // loadAutoComplete('destination', 'destination_details', 'Enter starting location.')
+
     }
 
 
@@ -25,8 +27,14 @@ const Map = () => {
       <>
         <button onClick={() => loadAPI().then(() => loadQueue())}> Enable Queue</button>
         <br />
-        <SearchBox/>
-        <div id="details">{'(Place not set)'}</div>
+        <form action="">
+          <SearchBox id='start'/>
+          <SearchBox id='destination'/>
+          <div id="start_details">{'(Start not set)'}</div>
+          <div id="destination_details">{'(Destination not set)'}</div>
+          <button type='submit'>Submit</button>
+        </form>
+
         <MapWidget/>
       </>
     );
