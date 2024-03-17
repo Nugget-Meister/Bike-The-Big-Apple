@@ -1,11 +1,23 @@
 import React from 'react';
 import Input from '../../../../common/Input/Input.jsx';
+import './SearchBox.css'
 
-const SearchBox = () => {
+import { useContext } from 'react';
+import { PathContext } from '../../helpers/pathContext.js';
+
+
+const SearchBox = ({id}) => {
+    const {path, setPath} = useContext(PathContext)
+
+    // console.log(path, setPath)
+
+    // console.log(thisPath)
+
     return (
         <>
             <Input
-                id='autocomplete'
+                id={id}
+                className='SearchBox'
                 placeholder='Enter a place'
                 type='text'
             />
