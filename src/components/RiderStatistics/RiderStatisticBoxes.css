@@ -1,56 +1,22 @@
 .riderStatisticBoxes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-    /* Adjust this according to your spacing preference */
-}
-
-.columnOne  {
-    width: 200px;  
-  height: 100px;
-  margin: auto;
-  margin-bottom: 20px;
-  background-color: gray;
-  border: 1px solid black;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.columnTwo  {
-    width: 200px; 
-  height: 100px;
-  margin: auto;
-  margin-bottom: 20px;
-  background-color: gray;
-  border: 1px solid black;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-.columnThree  {
-    width: 200px;  
-  height: 100px;
-  margin: auto;
-  margin-bottom: 20px;
-  background-color: gray;
-  border: 1px solid black;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.columnFour  {
-    width: 200px; 
-  height: 100px;
-  margin: auto;
-  margin-bottom: 20px;
-  background-color: gray;
-  border: 1px solid black;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-
-
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  grid-gap: 5px 5px;
+  
+  }
+  
+  .column {
+    text-align: center;
+  }
+  
+  .rectangle {
+    width: 500px; 
+    height: 100px; 
+    background-color: beige; 
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+  }
+  

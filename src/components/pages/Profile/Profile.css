@@ -1,15 +1,19 @@
 .userInformation {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+}
+.userCard {
+    flex: 0 0 calc(20% - 20px); /* Adjust as needed */
+    margin-right: 20px; /* Adjust as needed */
 }
 .profileTextCard {
+    flex: 0 0 calc(65% - 20px);
     border: 2px solid #ccc;
     border-radius: 4px;
     margin: 20px;
     padding: 10px;
     width: 1000px;
-    height: 200px;
+    height: 225px;
     
 
 }
@@ -30,7 +34,7 @@
 }
 
 .profileTextCardDescription {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     word-wrap: break-word; 
 }
 
@@ -44,7 +48,7 @@
     vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
-    padding: .375rem .75rem;
+    padding: .380rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
@@ -56,3 +60,11 @@
     border-color: #FCffe7;
     color:#000000;
 }
+
+.userInformation hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-color: #ccc; 
+    margin: 20px 0; 
+  }

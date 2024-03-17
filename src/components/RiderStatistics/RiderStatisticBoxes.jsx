@@ -1,39 +1,31 @@
 import React from "react";
-import "./riderStatisticBoxes.css";
+import "./RiderStatisticBoxes.css";
 
 const RiderStatisticBoxes = () => {
-    return (
-        <div className="riderStatisticBoxes">
-            
-                    <div className="columnOne">
-                        <div>
-                            <p>
-
-                            </p>
-                        </div>
-                        1 of 3
-                    </div>
-                    <div className="columnTwo">
-                        <div>
-                            <p>
-
-                            </p>
-                        </div>2 of 3</div>
-                    <div className="columnThree">
-                        <div>
-                            <p>
-
-                            </p>
-                        </div>3 of 3</div>
-                    <div className="columnFour">
-                        <div>
-                            <p>
-
-                            </p>
-                        </div>4 of 4</div>
-                </div>
-            
-    );
+  return (
+    <div className="riderStatisticBoxes">
+      <div className="column">
+        <div className="rectangle"><h2>Total Miles</h2>
+        <p>Description or additional text</p></div>
+        
+      </div>
+      <div className="column">
+        <div className="rectangle"><h2>Routes Completed</h2>
+        <p>Description or additional text</p>
+</div>
+        
+      </div>
+      <div className="column">
+        <div className="rectangle"><h2>Average Elevation</h2>
+        <p>Description or additional text</p></div>
+        
+      </div>
+      <div className="column">
+        <div className="rectangle"><h2>Completed Checkpoints</h2>
+        <p>Description or additional text</p></div>
+      </div>
+    </div>
+  );
 };
 
 export default RiderStatisticBoxes;

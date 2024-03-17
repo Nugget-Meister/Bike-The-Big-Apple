@@ -6,12 +6,13 @@ import "./Profile.css";
 
 const Profile = () => {
   return (
+    <div>
     <div className="userInformation">
-      <div>
+      
         <UserCard />
-      </div>
+     
       <div className="profileTextCard">
-        <div>
+        
           <p className="profileTextCardDescription">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -21,16 +22,22 @@ const Profile = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-        </div>
-        <div>
+          <div>
         {/* //offical BTBA Button*/}
         <button className="savedRoutesButton">SAVED ROUTES</button>
+      
       </div>
-      </div>
-      <div>
+          </div>
+          <hr/>
+  
+      
+      
+     
+    </div>
+    <div>
       <RiderStatisticBoxes />
       </div>
-     
+      <hr/>
     </div>
   );
 };
