@@ -1,0 +1,15 @@
+.bite-button {
+    transition: clip-path 0.3s ease-out, background-color 0.3s;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  .bite-button:hover {
+    clip-path: polygon(
+      0 0, 80% 0, 
+      83% 15%, 86% 0, 
+      89% 15%, 92% 0, 
+      95% 15%, 100% 0, 
+      100% 100%, 0 100%
+    );
+  }
+  
