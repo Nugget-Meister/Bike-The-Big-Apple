@@ -1,5 +1,9 @@
 import React from 'react';
 
 
-
-export {};
+const loadRouteAPI = async () => {
+    
+}
+export {
+    loadRouteAPI,
+};
