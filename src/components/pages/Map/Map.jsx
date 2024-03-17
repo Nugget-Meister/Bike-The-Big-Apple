@@ -9,22 +9,24 @@ import {
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 import { loadAutoComplete } from './helpers/googleAutoComplete.js';
 
-
-
 const Map = () => {
 
     const loadQueue = () => {
-        // renderMap();
+        renderMap();
         loadAutoComplete()
     }
 
 
-    // loadAPI().then(() => loadQueue())
+
+
+   
 
     return (
       <>
+        <button onClick={() => loadAPI().then(() => loadQueue())}> Enable Queue</button>
+        <br />
         <SearchBox/>
-        <div id="details">S</div>
+        <div id="details">{'(Place not set)'}</div>
         <MapWidget/>
       </>
     );

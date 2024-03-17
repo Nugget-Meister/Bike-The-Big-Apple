@@ -23,13 +23,17 @@ const loadAutoComplete = async () => {
             document.getElementById('autocomplete').placeholder = 'Enter a place.'
         } else {
             // Display details
-            document.getElementById('details').innerHTML = place.name;
+            document.getElementById('details').innerHTML = place.formatted_address;
+            console.log(place)
         }
 
     }
 
-    autoComplete.addlistener('place_changed', onPlaceChanged);
+    autoComplete.addListener('place_changed', onPlaceChanged);
+    
+}
 
+const hookAutoComplete = (id, text) => {
     
 }
 
