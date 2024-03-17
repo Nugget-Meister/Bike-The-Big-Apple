@@ -1,11 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    '/src/**/*.{js,jsx}'
+    "./index.html",
+    './src/**/*.{js,jsx}',
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: "1rem",
+    },
+    extend: {
+      colors: {
+        'custom-red': 'rgb(235, 69, 95)',
+        'custom-red-dark': 'rgb(211, 62, 85)',
+      }
+    },
   },
   plugins: [],
 }
-

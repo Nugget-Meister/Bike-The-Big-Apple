@@ -2,7 +2,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState, React } from "react";
 import { MyContext } from "./MyContext";
-import "../public/styles.css"
 
 import Logout from "./components/subcomponents/Login/logoutButton";
 import Login from "./components/subcomponents/Login/loginButton";
@@ -15,7 +14,7 @@ import Splash from './components/pages/Splash/Splash'
 
 function App() {
   
-  const [text, setText] = useState("");
+  // const [text, setText] = useState("");
 
   return (
 
