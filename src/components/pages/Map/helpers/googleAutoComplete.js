@@ -5,14 +5,13 @@ import React from 'react';
  * @param {string} input_id id for input box
  * @param {string} text - placeholder text to use
  * @param {string} target_id id to send target html to
+ * @param {Function} update invoker to update selected state
  */
-
 
 let { Places } = false;
 
 
-
-const loadAutoComplete = async (input_id, target_id, text) => {
+const loadAutoComplete = async (input_id, target_id, text, update) => {
 
     if(!Places){
          Places = await google.maps.importLibrary("places")
@@ -34,10 +33,10 @@ const loadAutoComplete = async (input_id, target_id, text) => {
         
         if(!place.geometry) {
             // No selected prediction, reset to default
-            document.getElementById(id).placeholder = text
+            document.getElementById(id).placeholder = text;
         } else {
             // Display details
-            console.log(place)
+            console.log(place);
             document.getElementById(target_id).innerHTML = place.formatted_address;
         }
 
