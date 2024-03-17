@@ -9,25 +9,32 @@ import {
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 import { loadAutoComplete } from './helpers/googleAutoComplete.js';
 
+import { useState, useContext } from 'react';
+
 const Map = () => {
 
     const loadQueue = () => {
-        renderMap();
+        // renderMap();
         loadAutoComplete('start', 'start_details', 'Enter starting location.')
         // loadAutoComplete('destination', 'destination_details', 'Enter starting location.')
 
     }
 
+    const [startPath, setStartPath] = useState({})
 
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log(e.target.start.value)
+      console.log(e.target.destination.value)
 
-
+    }
    
 
     return (
       <>
         <button onClick={() => loadAPI().then(() => loadQueue())}> Enable Queue</button>
         <br />
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <SearchBox id='start'/>
           <SearchBox id='destination'/>
           <div id="start_details">{'(Start not set)'}</div>
