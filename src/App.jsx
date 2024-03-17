@@ -15,7 +15,7 @@ import Splash from './components/pages/Splash/Splash'
 
 function App() {
   
-  const [text, setText] = useState("");
+  // const [text, setText] = useState("");
 
   return (
 
