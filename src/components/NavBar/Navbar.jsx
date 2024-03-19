@@ -1,6 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
+import Profile from "../pages/Profile/Profile.jsx";
 import Login from "../subcomponents/Login/loginButton.jsx";
 import Logout from "../subcomponents/Login/logoutButton.jsx";
 
@@ -31,6 +33,7 @@ const NavBar = () => {
           <Nav>
             <Login />
             <Logout /> 
+            <Profile />
           </Nav>
         </Container>
       </Navbar>
