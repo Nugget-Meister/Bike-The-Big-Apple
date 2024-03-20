@@ -1,0 +1,31 @@
+.userCard {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.userCardImg {
+    flex-grow: 0;
+}
+
+.userCardImg img {
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.userCardInfo {
+    padding: 10px;
+}
+
+.userCardMaidenName {
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+}
+
+.userCardUserName {
+    margin-bottom: 1rem;
+}
