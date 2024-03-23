@@ -1,3 +1,4 @@
+import PROFILESTOCKPIC from '/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/src/components/assets/ProfileStockPic.jpg'
 import React from 'react';
 
 import './UserCard.css';
@@ -8,13 +9,12 @@ const UserCard = () => {
     return (
         <div className="userCard">
             <div className="userCardImg">
-                <img variant="top" src={"src/components/assets/62718fed342b4e7b99c25c4995154d72.jpg"} alt="Card Image" />
+                <img variant="top" src={PROFILESTOCKPIC} alt="Card Image" />
             </div>
             <div className="userCardInfo">
-                <h5 className="userCardMaidenName">Card title</h5>
+                <h5 className="userCardMaidenName">Albert</h5>
                 <p className="userCardUserName">
-                    This is a wider card with supporting text below as a natural lead-in
-                    to additional content. This content is a little bit longer.
+                    "I'm Here to Ride SAFE & FREE!"
                 </p>
             </div>
         </div>

@@ -1,8 +1,10 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
 import Login from "../subcomponents/Login/loginButton.jsx";
 import Logout from "../subcomponents/Login/logoutButton.jsx";
+import ProfileButton from "../subcomponents/Profile/profileButton.jsx";
 
 const NavBar = () => {
   return (
@@ -30,8 +32,10 @@ const NavBar = () => {
           </Navbar.Brand>
           <Nav>
             <Login />
+            <ProfileButton />
             <Logout /> 
           </Nav>
+
         </Container>
       </Navbar>
     </>
