@@ -11,6 +11,7 @@ import { loadAutoComplete } from './helpers/googleAutoComplete.js';
 
 import { useState, createContext, useContext } from 'react';
 import { PathContext } from './helpers/pathContext.js';
+import { loadRouteAPI } from './helpers/googleRoute.js';
 
 const Map = () => {
   const [path, setPath] = useState({
@@ -21,7 +22,7 @@ const Map = () => {
   const [firstLoad, setfirstLoad] = useState(true)
 
   useEffect(() => {
-    console.log("current value: ", path, firstLoad)
+   
     if(!firstLoad){
       console.log("Path updated... Reloading Queue")
       loadQueue()
@@ -31,7 +32,11 @@ const Map = () => {
   // const path = useContext(PathContext)
 
     const loadQueue = () => {
-        // renderMap();
+      console.log("current value: ", path, firstLoad)
+      if(firstLoad){
+        setfirstLoad(false);
+        renderMap();
+      }
         loadAutoComplete('start', 'start_details', 'Enter starting location.', path, setPath)
         loadAutoComplete('destination', 'destination_details', 'Enter starting location.', path, setPath)
 
@@ -40,14 +45,15 @@ const Map = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      // console.log(path)
+      console.log(path)
       // console.log(e.target.start.value)
       // console.log(e.target.destination.value)
-      console.log(path.start.geometry.location.lat())
-      console.log(path.start.geometry.location.lng())
       // console.log(path.destination)
-      console.log(path.destination.geometry.location.lat())
-      console.log(path.destination.geometry.location.lng())
+      // console.log(path.start.geometry.location.lat())
+      // console.log(path.start.geometry.location.lng())
+      // console.log(path.destination.geometry.location.lat())
+      // console.log(path.destination.geometry.location.lng())
+      loadRouteAPI(path)
     }
    
 
@@ -56,7 +62,6 @@ const Map = () => {
         <PathContext.Provider value={{path, setPath}}>
           <button onClick={() => loadAPI().then(() => {
               loadQueue();
-              setfirstLoad(false);
               })}> Enable Queue</button>
           <br />
           <form onSubmit={handleSubmit}>
