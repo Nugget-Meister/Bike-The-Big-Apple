@@ -10,7 +10,8 @@ export default {
       padding: "1rem",
     },
     fontFamily: {
-      gotham: ['"Gotham Condensed Bold"', 'sans-serif'],
+      'gotham-condensed': ['"Gotham Condensed"', 'sans-serif'],
+      'gotham-condensed-bold': ['"Gotham Condensed Bold"', 'sans-serif'],
     },
     extend: {
       colors: {
