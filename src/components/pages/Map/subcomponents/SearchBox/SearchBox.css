@@ -1,0 +1,17 @@
+.SearchBox{
+    color: red;
+    width: 40rem;
+    height: 3rem;
+    border: 0.2rem solid gray;
+    border-radius: 0.5rem ;
+}
+
+.pac-container {
+    color:blue;
+    background-color: cyan;
+}
+
+.pac-item {
+    color: red;
+    background-color: gray;
+}
