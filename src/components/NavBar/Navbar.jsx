@@ -3,7 +3,7 @@
 // // import Navbar from "react-bootstrap/Navbar";
 import Login from "../subcomponents/Login/loginButton.jsx";
 import Logout from "../subcomponents/Login/logoutButton.jsx";
-import ProfileButton from "../pages/Profile/profilebutton.jsx";
+import ProfileButton from "../pages/Profile/profileButton.jsx";
 import React, { useState } from 'react';
 
 

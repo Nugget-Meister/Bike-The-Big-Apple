@@ -1,5 +1,6 @@
-import RiderStatisticBoxes from "/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/src/components/subcomponents/RiderStatistics/riderStatistics.jsx";
-import UserCard from "/Users/davonbridgett/Documents/BIKE_THE_BIG_APPLE/Bike-The-Big-Apple/src/components/subcomponents/UserCard/userCard.jsx";
+import RiderStatisticBoxes from "../../subcomponents/RiderStatistics/RiderStatisticsBoxes";
+
+import UserCard from "../../subcomponents/UserCard/userCard";
 import React from "react";
 import { useAuthContext } from "../../../Providers/AuthProvider";
 import "./Profile.css";

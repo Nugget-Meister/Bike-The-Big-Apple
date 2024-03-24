@@ -1,5 +1,5 @@
 import React from "react";
-import "./riderStatisticBoxes.css";
+import "./RiderStatisticBoxes.css";
 
 const RiderStatisticBoxes = () => {
   return (
