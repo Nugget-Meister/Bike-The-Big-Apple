@@ -5,15 +5,17 @@ const ProfileButton = () => {
   return (
     <div>
       <Link to="/profile">
-        <Button
+        {/* <Button
           style={{
             backgroundColor: "black",
             color: "white",
             borderRadius: "15px",
           }}
-        >
+        > */}
+        <button>
           Profile
-        </Button>
+        </button>
+        {/* </Button> */}
       </Link>
     </div>
   );
