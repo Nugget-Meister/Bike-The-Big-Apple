@@ -1,8 +1,17 @@
 import React from 'react';
 import './Splash.css'
+import { useNavigate } from 'react-router-dom';
 // import "../map"
 
 const Splash = () => {
+
+    const navigate = useNavigate();
+
+    const handleStartBikingClick = () => {
+        navigate('/map');
+    };
+
+
     return (
         <div className="bg-[#FCFFE7] flex flex-col justify-start items-center pt-8 pb-8 min-h-screen">
           <div className="text-center">
@@ -11,7 +20,7 @@ const Splash = () => {
               <div>Big Apple</div>
             </div>
             <img src='https://i.ibb.co/9sCPhwS/Bt-BA-Logo.png' alt="BtBA_Logo" className="mx-auto mb-25 pb-12" />
-            <button className="bg-black text-white px-16 py-2 h-12 rounded-lg hover:bg-red-700 transition-colors bite-button">
+            <button onClick={handleStartBikingClick} className="bg-black text-white font-gotham px-16 py-2 h-12 rounded-lg hover:bg-red-700 transition-colors bite-button animate-bounce">
               Start Biking!
             </button>
           </div>

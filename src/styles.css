@@ -3,3 +3,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'Gotham Condensed Bold';
+    src: url('./components/Assets/Gotham\ Condensed\ Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
