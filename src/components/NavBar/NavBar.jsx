@@ -3,6 +3,7 @@
 // // import Navbar from "react-bootstrap/Navbar";
 import Login from "../subcomponents/Login/loginButton.jsx";
 import Logout from "../subcomponents/Login/logoutButton.jsx";
+import ProfileButton from "../pages/Profile/ProfileButton.jsx";
 import React, { useState } from 'react';
 
 
@@ -29,6 +30,7 @@ return (
       <button className="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
         <Login/>
       </button>
+      <ProfileButton />
       <button className="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
         <Logout/>
       </button>
