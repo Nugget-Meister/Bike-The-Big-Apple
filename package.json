@@ -13,6 +13,7 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "esbuild": "^0.20.1",
     "firebase": "^10.8.1",
     "react": "^18.2.0",

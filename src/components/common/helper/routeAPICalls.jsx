@@ -4,7 +4,7 @@ const getAllroutes = () => {
     // console.log(URL)
     return fetch(`${URL}/route`)
     .then(res => {
-        // console.log(res)
+        console.log(res)
        return res.json()
     })
     .catch(err => {
