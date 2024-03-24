@@ -1,6 +1,6 @@
 import RiderStatisticBoxes from "../../subcomponents/RiderStatistics/RiderStatisticsBoxes";
 
-import UserCard from "../../subcomponents/UserCard/userCard";
+import UserCard from "../../subcomponents/UserCard/UserCard";
 import React from "react";
 import { useAuthContext } from "../../../Providers/AuthProvider";
 import "./Profile.css";
