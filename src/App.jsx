@@ -7,7 +7,8 @@ import "../public/styles.css"
 import Logout from "./components/subcomponents/Login/logoutButton";
 import Login from "./components/subcomponents/Login/loginButton";
 
-import NavBar from './components/NavBar/Navbar'
+import NavBar from './components/NavBar/Navbar.jsx'
+
 import Map from './components/pages/Map/Map'
 import Profile from './components/pages/Profile/Profile'
 import SavedRoutes from './components/pages/SavedRoutes/SavedRoutes'
