@@ -1,9 +1,12 @@
 // firebaseAuthProvider.js
 import React, { useEffect, useState, createContext } from "react";
 //noice here we are refrenceing the service we set up earlier
-import { auth } from "../Services/Firebase";
+import { auth } from "../../fireBase";
+export const AuthContext = createContext(null);
 
-
+export function useAuthContext(){
+  return useContext(AuthContext)
+}
 
 export const AuthProvider = (props) => {
     const [user, setUser] = useState(null);
@@ -30,4 +33,3 @@ export const AuthProvider = (props) => {
     }
 
     
-export const AuthContext = createContext(null);

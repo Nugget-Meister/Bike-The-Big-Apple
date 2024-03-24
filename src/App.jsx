@@ -9,16 +9,18 @@ import Splash from './components/pages/Splash/Splash'
 import Login from "./components/subcomponents/Login/loginButton";
 import Logout from "./components/subcomponents/Login/logoutButton";
 import { MyContext } from "./MyContext";
+import { AuthProvider } from "./Providers/AuthProvider";
 
 import "../public/styles.css"
 
 function App() {
   
-  // const [text, setText] = useState("");
+ 
 
   return (
 
     <>
+      <AuthProvider>
       <Router>
         <NavBar />
         <Routes>
@@ -29,6 +31,7 @@ function App() {
           <Route path={'/saved'} element={<SavedRoutes/>}/>
         </Routes>
       </Router>
+      </AuthProvider>
     </>
   )
 
