@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Form = (props) => {
+const Form = ({children, onSubmit}) => {
+
+    // console.log(children)
+
     return (
-        <form>
-            {props.children}
+        <form
+            className='Form ' 
+            onSubmit={onSubmit}
+        >
+            {children}
         </form>
       );
 }

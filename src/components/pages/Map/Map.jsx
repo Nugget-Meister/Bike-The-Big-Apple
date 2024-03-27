@@ -6,12 +6,16 @@ import {
     renderMap,
 } from './helpers/googleApiCalls.js'
 
-import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 import { loadAutoComplete } from './helpers/googleAutoComplete.js';
+import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 
 import { useState, createContext, useContext } from 'react';
 import { PathContext } from './helpers/pathContext.js';
 import { loadRouteAPI } from './helpers/googleRoute.js';
+
+import Form from '../../common/Form/Form.jsx';
+import Card from '../../common/Card/Card.jsx';
+import Button from '../../common/Button/Button.jsx';
 
 const Map = () => {
   const [path, setPath] = useState({
@@ -45,7 +49,9 @@ const Map = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      console.log(path)
+      // console.log(path)
+      
+      // console.log("bing bong")
       // console.log(e.target.start.value)
       // console.log(e.target.destination.value)
       // console.log(path.destination)
@@ -64,15 +70,21 @@ const Map = () => {
               loadQueue();
               })}> Enable Queue</button>
           <br />
-          <form onSubmit={handleSubmit}>
-            <SearchBox id='start'/>
-            <SearchBox id='destination'/>
-            <div id="start_details">{'(Start not set)'}</div>
-            <div id="destination_details">{'(Destination not set)'}</div>
-            <button type='submit'>Submit</button>
-          </form>
+          <Card>
+            <Form onSubmit={handleSubmit}>
+              <SearchBox id='start'/>
+              <SearchBox id='destination'/>
+              <div id="start_details">{'(Start not set)'}</div>
+              <div id="destination_details">{'(Destination not set)'}</div>
+              <Button 
+                type='submit'
+                className="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Submit
+              </Button>
+            </Form>
+          </Card>
         </PathContext.Provider>
-
         <MapWidget/>
       </>
     );
