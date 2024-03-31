@@ -78,7 +78,7 @@ const Map = () => {
               <div id="destination_details">{'(Destination not set)'}</div>
               <Button 
                 type='submit'
-                className="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
                   Submit
               </Button>
