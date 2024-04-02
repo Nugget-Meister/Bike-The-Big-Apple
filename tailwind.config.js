@@ -17,6 +17,15 @@ export default {
       colors: {
         'custom-red': 'rgb(235, 69, 95)',
         'custom-red-dark': 'rgb(211, 62, 85)',
+      },
+      keyframes: {
+        slideRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        slideRight: 'slideRight 0.5s ease-out forwards'
       }
     },
   },

@@ -6,7 +6,7 @@ import "../public/styles.css"
 import Logout from "./components/subcomponents/Login/logoutButton";
 import Login from "./components/subcomponents/Login/loginButton";
 
-import NavBar from './components/NavBar/NavBar.jsx'
+import NavBar from './components/NavBar/Navbar.jsx'
 
 import Map from './components/pages/Map/Map'
 import Profile from './components/pages/Profile/Profile'
