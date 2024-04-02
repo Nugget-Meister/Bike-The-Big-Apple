@@ -28,11 +28,11 @@ return (
       </div>
       
       <button className="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-        <Login/>
+        {/* <Login/> */}
       </button>
-      <ProfileButton />
+      {/* <ProfileButton /> */}
       <button className="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-        <Logout/>
+        {/* <Logout/> */}
       </button>
     </div>
   </div>
