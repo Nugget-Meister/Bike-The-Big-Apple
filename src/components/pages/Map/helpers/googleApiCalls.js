@@ -28,6 +28,8 @@ const renderMap = async (coords) => {
         center: coords || {lat: 40.7414836, lng: -73.9489162},
         zoom: 12
     })
+
+    return map;
 }
 
 
