@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
 import { getUserCoords } from './Map/helpers/userTracker';
 import { useEffect, useRef } from 'react';
+import NavCard from './Map/subcomponents/NavCard/NavCard';
+
+import { data } from './testdata.js';
 
 const Testing = () => {
-    let interval;
+   
+   
+   // Navigation steps
+
+    console.log(data.routes[0].legs[0])
+    console.log
+
+
+   
+   
+   
+    // User Tracking
+   
+   let interval;
 
     let trackerRef = useRef(true)
     const [isTracking, setIsTracking] = useState(trackerRef);
@@ -36,6 +52,7 @@ const Testing = () => {
         
         return (
             <div className='shmongus'>
+                <NavCard/>
                 <button 
                     onClick={() => {
                         trackerRef.current = !trackerRef.current

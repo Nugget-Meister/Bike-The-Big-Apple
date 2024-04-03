@@ -1,9 +1,14 @@
 import React from 'react';
 
-const NavCard = () => {
+const NavCard = (image, text) => {
     return (
-        <div>
-            
+        <div className='NavCard'>
+            <div>
+                <img src="" alt="" />
+            </div>
+            <div>
+                {}
+            </div>
         </div>
     );
 }
