@@ -7,12 +7,20 @@ import { data } from './testdata.js';
 
 const Testing = () => {
    
+    // Navigation steps
+    
+    let testString = data.routes[0].legs[0].steps;
+    // let [currentStep,updateCurrentStep] = useState(0)
+
+    let [instructions, setInstructions] = useState({
+        steps: data.routes[0].legs[0].steps,
+        currentStep: 0
+    })
    
-   // Navigation steps
-
-    console.log(data.routes[0].legs[0])
-    console.log
-
+    // console.log(testString)
+    // console.log(data.routes[0].legs[0])
+    // console.log(data.routes[0].legs[0].steps)
+    // console.log(testString.replaceAll("<b>","").replaceAll("</b>",""))
 
    
    
@@ -52,16 +60,24 @@ const Testing = () => {
         
         return (
             <div className='shmongus'>
-                <NavCard/>
+                {/*  map into opject to return list */}
+                {/* {testString.map((step)=> {
+                    return <NavCard text={step.instructions.replaceAll("<b>","").replaceAll("</b>","")}/>
+                })} */}
+
+                <NavCard 
+                    text={testString[0].instructions.replaceAll("<b>","").replaceAll("</b>","")}
+                    state={instructions}
+                    setState={setInstructions}
+                />
+
                 <button 
                     onClick={() => {
                         trackerRef.current = !trackerRef.current
                         setIsTracking(trackerRef.current)
                         console.log(trackerRef.current)
-
                     }
-
-                    }
+                }
                     className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
                     >
                         Bingus:  {isTracking ? "Bongus": "Shmongus"}
