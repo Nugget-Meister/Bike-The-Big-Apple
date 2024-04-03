@@ -804,6 +804,10 @@ video {
   background-color: rgba(43,53,103,255);
 }
 
+.bg-bike-off-white{
+  background-color: rgba(252,254,231,255);
+}
+
 .bg-blue-500{
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
