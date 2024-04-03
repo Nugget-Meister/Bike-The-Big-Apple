@@ -66,7 +66,7 @@ const Testing = () => {
                 })} */}
 
                 <NavCard 
-                    text={testString[0].instructions.replaceAll("<b>","").replaceAll("</b>","")}
+                    // text={testString[0].instructions.replaceAll("<b>","").replaceAll("</b>","")}
                     state={instructions}
                     setState={setInstructions}
                 />
