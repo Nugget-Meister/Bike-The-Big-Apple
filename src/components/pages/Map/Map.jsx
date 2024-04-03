@@ -18,6 +18,7 @@ import Card from '../../common/Card/Card.jsx';
 import Button from '../../common/Button/Button.jsx';
 
 import NavCard from './subcomponents/NavCard/NavCard.jsx';
+import EndCard from './subcomponents/EndCard/EndCard.jsx';
 
 
 
@@ -61,6 +62,9 @@ const Map = () => {
 
     }
   
+    const endRoute = () =>  {
+      setMapState({...mapState})
+    }
 
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -96,7 +100,7 @@ const Map = () => {
           </>
           ):(<></>)}
           
-          {!mapState.tracking ? (
+          {!mapState.tracking && !mapState.endedRoute ? (
             <>
               <Card className={""}>
                 <Form onSubmit={handleSubmit}>
@@ -114,13 +118,24 @@ const Map = () => {
                   </Button>
                 </Form>
               </Card>
-            </>) : (
+            </>) : null}
+
+          {mapState.tracking && !mapState.endedRoute ? (
             <>
               <NavCard 
                   state={mapState}
                   setState={setMapState}
               />
-            </>)}
+              <button 
+              onClick={()=> endRoute()}
+              className={buttonClassName}>End Route</button>
+            </>): null}
+        {!mapState.tracking && mapState.endedRoute ? (
+          <>
+            <EndCard/>
+          </>): null}
+
+        
           
         </PathContext.Provider>
         <MapWidget/>
