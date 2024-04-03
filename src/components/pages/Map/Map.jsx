@@ -63,7 +63,7 @@ const Map = () => {
     }
   
     const endRoute = () =>  {
-      setMapState({...mapState})
+      setMapState({...mapState, tracking:false, endedRoute:false})
     }
 
     const handleSubmit = (e) => {
@@ -105,9 +105,9 @@ const Map = () => {
               <Card className={""}>
                 <Form onSubmit={handleSubmit}>
                   <SearchBox id='start'/>
-                  <div id="start_details">{''}</div>
+                  <div classname="pb-2" id="start_details">{''}</div>
                   <SearchBox id='destination'/>
-                  <div id="destination_details">{''}</div>
+                  <div classname="pb-2" id="destination_details">{''}</div>
                   <Button 
                     type='submit'
                     className={
