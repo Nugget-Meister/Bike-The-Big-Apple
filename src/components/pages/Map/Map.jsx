@@ -17,13 +17,21 @@ import Form from '../../common/Form/Form.jsx';
 import Card from '../../common/Card/Card.jsx';
 import Button from '../../common/Button/Button.jsx';
 
+import NavCard from './subcomponents/NavCard/NavCard.jsx';
+
+
+
 const Map = () => {
+
+  
+
   const [path, setPath] = useState({
       start: {},
       destination: {}
     })
 
   const [firstLoad, setfirstLoad] = useState(true)
+
 
   useEffect(() => {
    
@@ -35,7 +43,14 @@ const Map = () => {
 
   // const path = useContext(PathContext)
 
-    const loadQueue = () => {
+  const [mapState, setMapState] = useState({
+    tracking: false,
+    endedRoute: false,
+    steps: {},
+    currentStep: 0
+  })
+
+  const loadQueue = () => {
       console.log("current value: ", path, firstLoad)
       if(firstLoad){
         setfirstLoad(false);
@@ -49,41 +64,64 @@ const Map = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      // console.log(path)
+
+
+      if(!firstLoad){
+        loadRouteAPI(path).then((res) => {
+          setMapState(
+            {
+              ...mapState,
+              tracking: true, 
+              steps: res.routes[0].legs[0].steps
+            })
+        })
+      }
+
       
-      // console.log("bing bong")
-      // console.log(e.target.start.value)
-      // console.log(e.target.destination.value)
-      // console.log(path.destination)
-      // console.log(path.start.geometry.location.lat())
-      // console.log(path.start.geometry.location.lng())
-      // console.log(path.destination.geometry.location.lat())
-      // console.log(path.destination.geometry.location.lng())
-      loadRouteAPI(path)
     }
    
+    // console.log(path.start.formatted_address != undefined)
 
+    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     return (
       <>
         <PathContext.Provider value={{path, setPath}}>
-          <button onClick={() => loadAPI().then(() => {
+
+          {firstLoad ? (
+          <>
+            <button onClick={() => loadAPI().then(() => {
               loadQueue();
               })}> Enable Queue</button>
-          <br />
-          <Card>
-            <Form onSubmit={handleSubmit}>
-              <SearchBox id='start'/>
-              <SearchBox id='destination'/>
-              <div id="start_details">{'(Start not set)'}</div>
-              <div id="destination_details">{'(Destination not set)'}</div>
-              <Button 
-                type='submit'
-                className="w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Submit
-              </Button>
-            </Form>
-          </Card>
+            <br />
+          </>
+          ):(<></>)}
+          
+          {!mapState.tracking ? (
+            <>
+              <Card className={""}>
+                <Form onSubmit={handleSubmit}>
+                  <SearchBox id='start'/>
+                  <div id="start_details">{''}</div>
+                  <SearchBox id='destination'/>
+                  <div id="destination_details">{''}</div>
+                  <Button 
+                    type='submit'
+                    className={
+                      path.start.formatted_address != undefined && path.destination.formatted_address != undefined ? buttonClassName + " animate-bounce" : buttonClassName
+                    }
+                    >
+                      Submit
+                  </Button>
+                </Form>
+              </Card>
+            </>) : (
+            <>
+              <NavCard 
+                  state={mapState}
+                  setState={setMapState}
+              />
+            </>)}
+          
         </PathContext.Provider>
         <MapWidget/>
       </>

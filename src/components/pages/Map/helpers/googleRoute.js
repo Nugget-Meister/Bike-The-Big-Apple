@@ -29,16 +29,20 @@ const loadRouteAPI = async (path) => {
         provideRouteAlternatives: false,
     }
 
+    let route = {};
+
     // Generate route
 
-    directionsService.route(request, (result, status) => {
+    return directionsService.route(request, (result, status) => {
         if (status == "OK") {
-            console.log(result)
+            // console.log(result)
             directionsRenderer.setMap(map)
             directionsRenderer.setDirections(result)
+            route = result
         }
     })
 
+    // return result
 
     // console.log(path.start.geometry.location.lat())
     // console.log(path.start.geometry.location.lng())

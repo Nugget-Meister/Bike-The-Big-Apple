@@ -13,7 +13,7 @@ import Profile from './components/pages/Profile/Profile'
 import SavedRoutes from './components/pages/SavedRoutes/SavedRoutes'
 import Splash from './components/pages/Splash/Splash'
 import { AuthProvider } from "./Providers/AuthProvider";
-
+import Testing from "./components/pages/testing.jsx";
 
 function App() {
   
@@ -28,6 +28,7 @@ function App() {
         {/* <Route path={'/profile/:username'} element={<Profile/>}/> */}
         <Route path={'/profile'} element={<Profile/>}/>
         <Route path={'/saved'} element={<SavedRoutes/>}/>
+        <Route path={'/testing'} element={<Testing/>}/>
       </Routes>
     </Router>
     </AuthProvider>
