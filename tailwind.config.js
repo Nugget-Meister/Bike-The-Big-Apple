@@ -17,6 +17,11 @@ export default {
       colors: {
         'custom-red': 'rgb(235, 69, 95)',
         'custom-red-dark': 'rgb(211, 62, 85)',
+        'apple-red':'rgba(235,70,95,255)',
+        'bike-blue':'rgba(43,53,103,255)',
+        'bike-light-blue':'rgba(186,216,233,255)',
+        'bike-off-white':'rgba(252,254,231,255)',
+        'bike-golden-yellow':'rgba(252,254,231,255)',
       },
       keyframes: {
         slideRight: {
