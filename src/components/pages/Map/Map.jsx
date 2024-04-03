@@ -80,18 +80,25 @@ const Map = () => {
       
     }
    
+    // console.log(path.start.formatted_address != undefined)
 
+    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
     return (
       <>
         <PathContext.Provider value={{path, setPath}}>
-          <button onClick={() => loadAPI().then(() => {
+
+          {firstLoad ? (
+          <>
+            <button onClick={() => loadAPI().then(() => {
               loadQueue();
               })}> Enable Queue</button>
-          <br />
-
+            <br />
+          </>
+          ):(<></>)}
+          
           {!mapState.tracking ? (
             <>
-              <Card>
+              <Card className={""}>
                 <Form onSubmit={handleSubmit}>
                   <SearchBox id='start'/>
                   <div id="start_details">{''}</div>
@@ -99,7 +106,9 @@ const Map = () => {
                   <div id="destination_details">{''}</div>
                   <Button 
                     type='submit'
-                    className="w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className={
+                      path.start.formatted_address != undefined && path.destination.formatted_address != undefined ? buttonClassName + " animate-bounce" : buttonClassName
+                    }
                     >
                       Submit
                   </Button>

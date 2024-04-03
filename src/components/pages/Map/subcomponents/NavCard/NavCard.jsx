@@ -21,25 +21,31 @@ const NavCard = ({image, setState, state}) => {
     }
 
     // console.log(state.steps, state.currentStep, state.steps[state.currentStep])
-
+    let style = "animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-2 rounded-lg shadow-md"
 
     return (
-        <div className='NavCard z-10 inline-flex max-w-md animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
-            <div className='inline'>
+        <div className='NavCard z-10 inline-flex fixed top-10 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
+            <div className='inline-flex'>
                 <img src="" alt="" />
-                <button
-                    className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-                    onClick={() => updateValue(-1)}
-                    >{"<"}</button>
+                {state.currentStep > 0 ? (
+                <>
+                    <button
+                        className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                        onClick={() => updateValue(-1)}
+                        >{"<"}</button>
+                </>): null}
             </div>
             <div className='flex-1 max-w-xs p-2'>
                 {parseInstruction(state.steps[state.currentStep].instructions)}
             </div>
-            <div className='inline'>
-                <button
-                    className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-                    onClick={() => updateValue(1)}
-                    >{">"}</button>
+            <div className='inline-flex'>
+            {state.currentStep < state.steps.length ? (
+                <>
+                    <button
+                        className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                        onClick={() => updateValue(1)}
+                        >{">"}</button>
+                </>): null}
             </div>
         </div>
     );
