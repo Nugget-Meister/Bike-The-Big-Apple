@@ -45,6 +45,7 @@ const Map = () => {
 
   const [mapState, setMapState] = useState({
     tracking: false,
+    endedRoute: false,
     steps: {},
     currentStep: 0
   })

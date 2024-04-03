@@ -3,8 +3,8 @@ import React from 'react';
 const NavCard = ({image, setState, state}) => {
 
     const updateValue = (value) => {
-        console.log(state.currentStep + value)
-        if(state.currentStep + value > 0 || state.currentStep + value < state) {
+        // console.log(state.currentStep + value)
+        if(state.currentStep + value > 0 && state.currentStep + value < state.steps.length) {
             setState({...state, currentStep: state.currentStep + value})
         } else {
             console.log("max or min value exceeded")
@@ -20,11 +20,11 @@ const NavCard = ({image, setState, state}) => {
         }
     }
 
-    console.log(state.steps, state.currentStep, state.steps[state.currentStep])
+    // console.log(state.steps, state.currentStep, state.steps[state.currentStep])
 
 
     return (
-        <div className='NavCard inline-flex max-w-md animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
+        <div className='NavCard z-10 inline-flex max-w-md animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
             <div className='inline'>
                 <img src="" alt="" />
                 <button
