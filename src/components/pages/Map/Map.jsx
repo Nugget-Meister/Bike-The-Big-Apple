@@ -63,7 +63,7 @@ const Map = () => {
     }
   
     const endRoute = () =>  {
-      setMapState({...mapState, tracking:false, endedRoute:false})
+      setMapState({...mapState, tracking:false, endedRoute:true})
     }
 
     const handleSubmit = (e) => {
@@ -132,7 +132,7 @@ const Map = () => {
             </>): null}
         {!mapState.tracking && mapState.endedRoute ? (
           <>
-            <EndCard/>
+            <EndCard state={mapState} setState={setMapState}/>
           </>): null}
 
         
