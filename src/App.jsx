@@ -21,7 +21,7 @@ function App() {
   <>
     <AuthProvider>
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path={'/'} element={<Splash/>}/>
         <Route path={'/map'} element={<Map/>}/>
