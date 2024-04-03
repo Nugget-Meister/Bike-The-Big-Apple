@@ -25,7 +25,7 @@ const Profile = () => {
 
       <div className="w-11/12 mt-3">
         <div className="flex items-center justify-start space-x-12">
-        <a href="/saved-routes" className="text-2xl font-semibold text-white">Saved Routes</a>
+        <a href="/savedroutes" className="text-2xl font-semibold text-white">Saved Routes</a>
           <div className="flex items-center">
             <p className="text-2xl text-white">(3)</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
