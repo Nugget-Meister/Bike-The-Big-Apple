@@ -14,7 +14,12 @@ const NavCard = ({image, setState, state}) => {
 
     const parseInstruction = (text) => {
         try {
-            return text.replaceAll("<b>","").replaceAll("</b>","")
+            console.log(text)
+            return text.replaceAll("<b>","")
+            .replaceAll("</b>"," ")
+            .replaceAll("</div>","")
+            .replaceAll(`<div style="font-size:0.9em">`,"")
+            .replaceAll("/<wbr/>"," ")
         } catch {
             return "{$invalidValue}"
         }
@@ -24,7 +29,7 @@ const NavCard = ({image, setState, state}) => {
     let style = "animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-2 rounded-lg shadow-md"
 
     return (
-        <div className='NavCard z-10 inline-flex fixed top-10 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
+        <div className='NavCard z-10 inline-flex fixed top-10 w-full inset-x-0.right0 m-2 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
             <div className='inline-flex'>
                 <img src="" alt="" />
                 {state.currentStep > 0 ? (
@@ -35,7 +40,8 @@ const NavCard = ({image, setState, state}) => {
                         >{"<"}</button>
                 </>): null}
             </div>
-            <div className='flex-1 max-w-xs p-2'>
+            <div className='flex-1 max-w-xs p-2 text-center'>
+                {/* <p>ss</p> */}
                 {parseInstruction(state.steps[state.currentStep].instructions)}
             </div>
             <div className='inline-flex'>
