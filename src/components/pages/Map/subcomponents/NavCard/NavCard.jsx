@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavCard = ({image, text, setState, state}) => {
+const NavCard = ({image, setState, state}) => {
 
     const updateValue = (value) => {
         console.log(state.currentStep + value)
