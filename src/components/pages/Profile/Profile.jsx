@@ -25,7 +25,7 @@ const Profile = () => {
 
       <div className="w-11/12 mt-3">
         <div className="flex items-center justify-start space-x-12">
-          <a href="/saved-routes" className="text-2xl font-semibold text-bike-off-white">
+          <a href="/saved" className="text-2xl font-semibold text-bike-off-white">
             Saved Routes
           </a>
           <div className="flex items-center">
