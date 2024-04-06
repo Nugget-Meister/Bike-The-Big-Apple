@@ -20,7 +20,7 @@ const Splash = () => {
               <div>Big Apple</div>
             </div>
             <img src='https://i.ibb.co/9sCPhwS/BtBA-Logo.png' alt="BtBA_Logo" className="mx-auto pb-7 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" />
-            <button onClick={handleStartBikingClick} className="bg-bike-blue text-white font-gotham px-16 py-2 h-12 rounded-lg hover:bg-red-700 transition-colors bite-button animate-bounce">
+            <button onClick={handleStartBikingClick} className="bg-bike-blue text-white font-gotham px-16 py-2 h-12 rounded-lg hover:bg-apple-red transition-colors bite-button animate-bounce">
               Start Biking!
             </button>
           </div>
