@@ -33,39 +33,39 @@ const renderMap = async (coords) => {
 }
 
 
-const renderRoute = async (start, end) => {
-    //convert to latlng
-    /**
-     * start = new google.maps.LatLng(latitude, longitude)
-     * endn = new google.maps.LatLng(latitude, longitude)
-     */
+// const renderRoute = async (start, end) => {
+//     //convert to latlng
+//     /**
+//      * start = new google.maps.LatLng(latitude, longitude)
+//      * endn = new google.maps.LatLng(latitude, longitude)
+//      */
 
 
-    // {lat: number, lng: number}
-    const { Map } = await google.maps.importLibrary('maps');
-    const { DirectionsService } = await google.maps.importLibrary('routes')
+//     // {lat: number, lng: number}
+//     const { Map } = await google.maps.importLibrary('maps');
+//     const { DirectionsService } = await google.maps.importLibrary('routes')
 
-    let directionsService = new google.maps.DirectionsService()
-    let directionsRenderer = new google.maps.DirectionsRenderer()
+//     let directionsService = new google.maps.DirectionsService()
+//     let directionsRenderer = new google.maps.DirectionsRenderer()
 
-    let mapOptions = {
-        zoom: 6,
-        center: start
-    }
+//     let mapOptions = {
+//         zoom: 6,
+//         center: start
+//     }
 
-    let request = {
-        origin: start,
-        destination: end,
-        travelMode: 'BICYCLING',
-        provideRouteAlternatives: false
-    }
-
-
-
+//     let request = {
+//         origin: start,
+//         destination: end,
+//         travelMode: 'BICYCLING',
+//         provideRouteAlternatives: false
+//     }
 
 
 
-}
+
+
+
+// }
 
 
 export  {
