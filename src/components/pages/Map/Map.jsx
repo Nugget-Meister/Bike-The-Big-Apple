@@ -105,9 +105,9 @@ const Map = () => {
               <Card className={""}>
                 <Form onSubmit={handleSubmit}>
                   <SearchBox id='start'/>
-                  <div classname="pb-2" id="start_details">{''}</div>
+                  <div className="pb-2" id="start_details">{''}</div>
                   <SearchBox id='destination'/>
-                  <div classname="pb-2" id="destination_details">{''}</div>
+                  <div className="pb-2" id="destination_details">{''}</div>
                   <Button 
                     type='submit'
                     className={
