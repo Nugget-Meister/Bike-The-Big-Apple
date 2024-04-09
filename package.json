@@ -17,6 +17,7 @@
     "dotenv": "^16.4.5",
     "esbuild": "^0.20.1",
     "firebase": "^10.8.1",
+    "ldrs": "^1.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
