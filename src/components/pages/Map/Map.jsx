@@ -7,7 +7,7 @@ import {
 } from './helpers/googleApiCalls.js'
 
 import { loadAutoComplete } from './helpers/googleAutoComplete.js';
-import { setMarker, updateMarker } from './helpers/googlePointer.js';
+import { setMarker, updateMarker } from './helpers/googlePointer.jsx';
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 
 import { useState, useRef, createContext, useContext } from 'react';
@@ -41,6 +41,8 @@ const Map = () => {
       console.log("Path updated... Reloading Queue")
       loadQueue()
     }
+
+    console.log(mapState)
   },[path])
 
   // const path = useContext(PathContext)
@@ -162,7 +164,17 @@ const Map = () => {
         <button 
           className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
           onClick={()=>{
-            setMapState({...mapState, markers: setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )})}}>Marker</button>
+            setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )
+            .then(res => {
+              // console.log(res)
+              // console.log(res.position)
+              setMapState({
+                ...mapState, 
+                markers: res}
+                )
+            })            
+            }
+              }>Marker</button>
 
           
         </PathContext.Provider>
