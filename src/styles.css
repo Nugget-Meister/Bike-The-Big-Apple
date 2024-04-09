@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'Gotham Condensed Bold';
-    src: url('./components/Assets/Gotham\ Condensed\ Bold.otf') format('opentype');
+    src: url('./components/assets/Gotham\ Condensed\ Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
 }
