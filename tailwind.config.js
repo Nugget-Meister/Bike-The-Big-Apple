@@ -21,7 +21,7 @@ export default {
         'bike-blue':'rgba(43,53,103,255)',
         'bike-light-blue':'rgba(186,216,233,255)',
         'bike-off-white':'rgba(252,254,231,255)',
-        'bike-golden-yellow':'rgba(252,254,231,255)',
+        'bike-golden-yellow':'rgba(254,207,91,255)',
       },
       keyframes: {
         slideRight: {
