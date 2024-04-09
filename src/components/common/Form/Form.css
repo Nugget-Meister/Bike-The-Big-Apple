@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../components/Assets/Lato.ttf') format('truetype');
+}
+
+@keyframes dropAndBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+    90% {
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.pac-container {
+    background-color: #FCFFE7;
+    position: absolute!important;
+    z-index: 1000;
+    border-radius: 4px;
+    border-top: 0px solid #d9d9d9;
+    font-family: 'Lato', sans-serif;
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: dropAndBounce 0.3s ease-out;
+}
+
+
+
+.pac-logo:after {
+    content: "";
+    padding: 1px 1px 1px 0;
+    height: 0px;
+    text-align: right;
+    display: block;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 0px 14px
+}
+.hdpi.pac-logo:after {
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
+}
+.pac-item {
+    background-color: #FCFFE7;
+    cursor: default;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 30px;
+    text-align: left;
+    border-top: 1px solid #e6e6e6;
+    font-size: 11px;
+    color: #000000;
+}
+.pac-item:hover {
+    background-color: #fafafa
+}
+.pac-item-selected,
+.pac-item-selected:hover {
+    background-color: #ebf2fe
+}
+.pac-matched {
+    font-weight: 700
+}
+.pac-item-query {
+    font-size: 16px;
+    padding-right: 50px;
+    color: #000
+}
+.pac-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+    margin-top: 6px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+    background-size: 45px
+}
+.hdpi .pac-icon {
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)
+}
+.pac-icon-search {
+    background-position: -1px -1px
+}
+.pac-item-selected .pac-icon-search {
+    background-position: -18px -1px
+}
+.pac-icon-marker {
+    background-position: -1px -161px
+}
+.pac-item-selected .pac-icon-marker {
+    background-position: -18px -161px
+}
+.pac-placeholder {
+    color: #FCFFE7;
+}

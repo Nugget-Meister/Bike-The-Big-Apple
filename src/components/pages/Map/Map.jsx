@@ -134,8 +134,6 @@ const Map = () => {
           <>
             <EndCard state={mapState} setState={setMapState}/>
           </>): null}
-
-        
           
         </PathContext.Provider>
         <MapWidget/>
