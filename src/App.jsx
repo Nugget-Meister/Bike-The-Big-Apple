@@ -17,8 +17,12 @@ import Testing from "./components/pages/testing.jsx";
 
 function App() {
   
+  const [isLoading, setIsLoading] = useState(false);
+
+
   return (
   <>
+    {isLoading && <LoadingScreen animationName={animationName} />}
     <AuthProvider>
     <Router>
       {/* <NavBar /> */}

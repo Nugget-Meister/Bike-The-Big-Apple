@@ -1,0 +1,25 @@
+@keyframes expandFromCircle {
+    0% {
+      transform: scale(0);
+      border-radius: 50%;
+    }
+    70% {
+      transform: scale(2);
+      border-radius: 50%;
+    }
+    100% {
+      transform: scale(1);
+      border-radius: 0%;
+    }
+  }
+
+  @keyframes shrinkToCircle {
+    0% {
+      transform: scale(1);
+      border-radius: 0%;
+    }
+    100% {
+      transform: scale(0);
+      border-radius: 50%;
+    }
+  }
