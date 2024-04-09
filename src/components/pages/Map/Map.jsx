@@ -10,7 +10,7 @@ import { loadAutoComplete } from './helpers/googleAutoComplete.js';
 import { setMarker, updateMarker } from './helpers/googlePointer.js';
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 
-import { useState, createContext, useContext } from 'react';
+import { useState, useRef, createContext, useContext } from 'react';
 import { PathContext } from './helpers/pathContext.js';
 import { loadRouteAPI } from './helpers/googleRoute.js';
 
@@ -46,12 +46,19 @@ const Map = () => {
   // const path = useContext(PathContext)
 
   const [mapState, setMapState] = useState({
-    tracking: false,
-    endedRoute: false,
-    steps: {},
-    currentStep: 0,
-    activeMap: false,
+    tracking: false,      // is currently tracking user?
+    endedRoute: false,    // check if route is ended
+    selectedRoute: false, // check if route is finalized
+    steps: {},            // listed steps in route
+    currentStep: 0,       // index for current step in route
+    activeMap: false,     // holds reference to loaded map
     markers: []
+  })
+
+  // Refs for use when refresh is not wanted.
+  const appRef = useRef({
+    isTracking: false,
+    timeout: 5000,
   })
 
   const loadQueue = () => {
@@ -60,19 +67,22 @@ const Map = () => {
         setfirstLoad(false);
         renderMap()
         .then(res => {
-          // console.log(res)
           setMapState({
             ...mapState,
             activeMap: res
           })
         })
       }
+
+    // Load/reload autocompletes if route is not finalized
+      if(!mapState.selectedRoute){
         loadAutoComplete('start', 'start_details', 'Enter starting location.', path, setPath)
         loadAutoComplete('destination', 'destination_details', 'Enter starting location.', path, setPath)
+      }
 
     }
   
-    
+
     const endRoute = () =>  {
       setMapState({...mapState, tracking:false, endedRoute:true})
     }
@@ -86,6 +96,7 @@ const Map = () => {
           setMapState(
             {
               ...mapState,
+              selectedRoute: true,
               tracking: true, 
               steps: res.routes[0].legs[0].steps
             })
@@ -95,9 +106,11 @@ const Map = () => {
       
     }
    
-    // console.log(path.start.formatted_address != undefined)
+
 
     let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    
+    
     return (
       <>
         <PathContext.Provider value={{path, setPath}}>
@@ -149,7 +162,6 @@ const Map = () => {
         <button 
           className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
           onClick={()=>{
-            console.log("bingbong")
             setMapState({...mapState, markers: setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )})}}>Marker</button>
 
           
