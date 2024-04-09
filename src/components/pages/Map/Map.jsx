@@ -7,6 +7,7 @@ import {
 } from './helpers/googleApiCalls.js'
 
 import { loadAutoComplete } from './helpers/googleAutoComplete.js';
+import { setMarker, updateMarker } from './helpers/googlePointer.js';
 import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 
 import { useState, createContext, useContext } from 'react';
@@ -48,20 +49,30 @@ const Map = () => {
     tracking: false,
     endedRoute: false,
     steps: {},
-    currentStep: 0
+    currentStep: 0,
+    activeMap: false,
+    markers: []
   })
 
   const loadQueue = () => {
       console.log("current value: ", path, firstLoad)
       if(firstLoad){
         setfirstLoad(false);
-        renderMap();
+        renderMap()
+        .then(res => {
+          // console.log(res)
+          setMapState({
+            ...mapState,
+            activeMap: res
+          })
+        })
       }
         loadAutoComplete('start', 'start_details', 'Enter starting location.', path, setPath)
         loadAutoComplete('destination', 'destination_details', 'Enter starting location.', path, setPath)
 
     }
   
+    
     const endRoute = () =>  {
       setMapState({...mapState, tracking:false, endedRoute:true})
     }
@@ -135,7 +146,12 @@ const Map = () => {
             <EndCard state={mapState} setState={setMapState}/>
           </>): null}
 
-        
+        <button 
+          className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
+          onClick={()=>{
+            console.log("bingbong")
+            setMapState({...mapState, markers: setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )})}}>Marker</button>
+
           
         </PathContext.Provider>
         <MapWidget/>

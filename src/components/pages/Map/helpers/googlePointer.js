@@ -24,6 +24,7 @@ const updateMarker = async (marker, mapTarget, position, title) => {
     return marker;
 }
 
+
 export {
     setMarker,
     updateMarker

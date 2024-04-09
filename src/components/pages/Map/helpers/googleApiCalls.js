@@ -26,7 +26,8 @@ const renderMap = async (coords) => {
 
         let map = new Map(document.getElementById("map"), {
         center: coords || {lat: 40.7414836, lng: -73.9489162},
-        zoom: 12
+        zoom: 12,
+        mapId: "907719a626af6b66"
     })
 
     return map;
