@@ -12,6 +12,7 @@ const setMarker = async (mapTarget, position, title) => {
     
     // Establish glyph import & elements
     // let glyphImg = (<img src={bikeIcon}/>)
+    
     let glyphImg = document.createElement("img")
     glyphImg.src = bikeIcon;
     glyphImg.style.width = "100%";
