@@ -1,5 +1,4 @@
 import RiderStatisticBoxes from "../../subcomponents/RiderStatistics/RiderStatisticsBoxes";
-
 import UserCard from "../../subcomponents/UserCard/UserCard";
 import React from "react";
 import { useAuthContext } from "../../../Providers/AuthProvider";
@@ -15,13 +14,13 @@ const Profile = () => {
         className="w-48 h-48 object-cover rounded-full md:w-64 md:h-64 border-4 border-bike-off-white"
       />
 
-      <h1 className="text-5xl md:text-3xl font-semibold mt-4 text-bike-off-white">
+      <h1 className="text-5xl md:text-3xl font-gotham-condensed-bold mt-4 text-bike-off-white">
         Albert
       </h1>
 
       <p className="text-xl md:text-lg text-gray-300 mt-2">user1234</p>
 
-      <div className="w-11/12 h-1 bg-bike-off-white mt-5"></div>
+      <div className="w-11/12 h-0.5 bg-bike-off-white mt-5"></div>
 
       <div className="w-11/12 mt-3">
         <div className="flex items-center justify-start space-x-12">
@@ -36,7 +35,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="w-11/12 h-1 bg-bike-off-white mt-3"></div>
+      <div className="w-11/12 h-0.5 bg-bike-off-white mt-3"></div>
 
       <h2 className="self-start text-lg font-semibold mt-5 text-bike-off-white">
         Statistics
@@ -57,8 +56,8 @@ const Profile = () => {
       </h2>    
       <div className="flex mt-5 space-x-12">
         {Array.from({ length: 5 }).map((_, index) => (
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(254,207,91,255)" class="w-10 h-10">
-  <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(254,207,91,255)" className="w-10 h-10">
+  <path fillRule="evenodd" d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
 </svg>
 
         ))}

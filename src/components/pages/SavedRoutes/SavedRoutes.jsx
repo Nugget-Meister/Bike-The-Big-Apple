@@ -1,11 +1,12 @@
 import React from 'react';
+import "./SavedRoutes.css"
 
 const SavedRoutes = () => {
 
     return (
         <div className="bg-bike-blue">
             <div className="p-4 text-left text-white">
-                <h1 className="text-2xl">Saved Routes</h1>
+                <h1 className="text-3xl">Saved Routes</h1>
             </div>
 
             <div className="flex overflow-x-auto py-4 space-x-4 snap-x snap-mandatory" style={{scrollBehavior: "smooth"}}>
