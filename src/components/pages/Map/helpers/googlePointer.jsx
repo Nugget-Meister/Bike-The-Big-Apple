@@ -1,5 +1,7 @@
 
-import bikeIcon from '../../../assets/bike-svgrepo-com.svg'
+// import bikeIcon from '../../../assets/bike-svgrepo-com.svg'
+import bikeIcon from '/src/components/assets/bike-svgrepo-com.svg'
+
 
 
 
@@ -12,7 +14,7 @@ const setMarker = async (mapTarget, position, title) => {
     
     // Establish glyph import & elements
     // let glyphImg = (<img src={bikeIcon}/>)
-    
+
     let glyphImg = document.createElement("img")
     glyphImg.src = bikeIcon;
     glyphImg.style.width = "100%";
