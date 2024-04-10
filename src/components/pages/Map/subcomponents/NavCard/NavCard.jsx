@@ -29,7 +29,7 @@ const NavCard = ({image, setState, state}) => {
     let style = "animation-slideRight fixed top-10 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-2 rounded-lg shadow-md"
 
     return (
-        <div className='NavCard z-10 inline-flex fixed top-10 w-full sm:w-1/2 inset-x-0.right0 bg-blue-500 text-white p-4 rounded-lg shadow-md'>
+        <div className='NavCard z-10 inline-flex fixed top-10 w-full sm:w-1/2 inset-x-0.right0 bg-bike-blue text-white p-4 rounded-lg shadow-md'>
             <div className='inline-flex'>
                 <img src="" alt="" />
                 {state.currentStep > 0 ? (
@@ -40,7 +40,7 @@ const NavCard = ({image, setState, state}) => {
                         >{"<"}</button>
                 </>): null}
             </div>
-            <div className='flex-1 max-w-xs p-2 text-center'>
+            <div className='font-gotham-condensed-bold text-2xl flex-1 max-w-xs p-2 text-center'>
                 {/* <p>ss</p> */}
                 {parseInstruction(state.steps[state.currentStep].instructions)}
             </div>
