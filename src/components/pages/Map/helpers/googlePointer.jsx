@@ -38,21 +38,22 @@ const setMarker = async (mapTarget, position, title) => {
     return marker;
 }
 
-const updateMarker = async (marker, mapTarget, position, title) => {
+const updateMarker = async (marker, position, title) => {
 
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-    marker = new AdvancedMarkerElement({
-        map: mapTarget,
-        position: position,
-        title: title
-    })
+    marker.position = position;
 
     return marker;
+}
+
+const hideMarker = async (marker) => {
+    marker.map = null
 }
 
 
 export {
     setMarker,
-    updateMarker
+    updateMarker,
+    hideMarker
 }

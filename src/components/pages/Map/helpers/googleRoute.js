@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const loadRouteAPI = async (path) => {
+const loadRouteAPI = async (path, currentMap) => {
 
     // Need to remove extra map import w/ state at some point
     const { Map } = await google.maps.importLibrary("maps");
@@ -17,10 +17,11 @@ const loadRouteAPI = async (path) => {
 
     let mapOptions = {
         zoom: 7,
-        center: start
+        center: start,
+        mapId: "907719a626af6b66"
     }
 
-    let map = new google.maps.Map(document.getElementById('map'), mapOptions)
+    // let map = new google.maps.Map(document.getElementById('map'), mapOptions)
     
     let request = {
         origin: start, 
@@ -33,10 +34,14 @@ const loadRouteAPI = async (path) => {
 
     // Generate route
 
+    let returnedObject = {
+        route: 1
+    }
+    
     return directionsService.route(request, (result, status) => {
         if (status == "OK") {
             // console.log(result)
-            directionsRenderer.setMap(map)
+            directionsRenderer.setMap(currentMap)
             directionsRenderer.setDirections(result)
             route = result
         }
