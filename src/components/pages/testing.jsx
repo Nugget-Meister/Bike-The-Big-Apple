@@ -65,11 +65,11 @@ const Testing = () => {
                     return <NavCard text={step.instructions.replaceAll("<b>","").replaceAll("</b>","")}/>
                 })} */}
 
-                <NavCard 
+                {/* <NavCard 
                     // text={testString[0].instructions.replaceAll("<b>","").replaceAll("</b>","")}
                     state={instructions}
                     setState={setInstructions}
-                />
+                /> */}
 
                 <button 
                     onClick={() => {
