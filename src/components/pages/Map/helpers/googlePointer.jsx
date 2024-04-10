@@ -1,6 +1,6 @@
 
-// import bikeIcon from '../../../assets/bike-svgrepo-com.svg'
-import bikeIcon from '/src/components/assets/bike-svgrepo-com.svg'
+import bikeIcon from './../../../assets/bike-svgrepo-com.svg'
+
 
 
 
