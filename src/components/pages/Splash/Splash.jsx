@@ -12,12 +12,12 @@ const Splash = () => {
         setIsLoading(true);
         await new Promise(resolve => setTimeout(resolve, Math.random() * (3000 - 500) + 500));
         
-        setAnimationName('shrinkToCircle');
+        // setAnimationName('shrinkToCircle');
         
         setTimeout(() => {
             setIsLoading(false);
             navigate('/map');
-        }, 1500);
+        }, 1000);
     };
 
     return (
