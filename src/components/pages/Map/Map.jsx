@@ -22,6 +22,8 @@ import Button from '../../common/Button/Button.jsx';
 import NavCard from './subcomponents/NavCard/NavCard.jsx';
 import EndCard from './subcomponents/EndCard/EndCard.jsx';
 
+import LoadingScreen from '../../common/loadingScreen.jsx';
+
 
 
 const Map = () => {
@@ -37,12 +39,18 @@ const Map = () => {
 
   useEffect(() => {
    
+  //   if(firstLoad){
+  //     loadAPI().then(() => {
+  //       loadQueue()
+  //   })
+  // }
+
     if(!firstLoad){
       console.log("Path updated... Reloading Queue")
       loadQueue()
     }
 
-    console.log(mapState)
+    // console.log(mapState)
   },[path])
 
   // const path = useContext(PathContext)
@@ -164,6 +172,7 @@ const Map = () => {
     return (
       <>
         <PathContext.Provider value={{path, setPath}}>
+          <LoadingScreen animationName={"shrinkToCircle"}/>
 
           {firstLoad ? (
           <>
@@ -179,9 +188,9 @@ const Map = () => {
               <Card className={""}>
                 <Form onSubmit={handleSubmit}>
                   <SearchBox id='start'/>
-                  <div className="pb-2" id="start_details">{''}</div>
+                  <div className="pb-2 text-white" id="start_details">{''}</div>
                   <SearchBox id='destination'/>
-                  <div className="pb-2" id="destination_details">{''}</div>
+                  <div className="pb-4 text-white" id="destination_details">{''}</div>
                   <Button 
                     type='submit'
                     className={
@@ -202,14 +211,14 @@ const Map = () => {
               />
               <button 
               onClick={()=> endRoute()}
-              className={buttonClassName}>End Route</button>
+              className={buttonClassName + " absolute z-30"}>End Route</button>
             </>): null}
         {!mapState.isTracking && mapState.endedRoute ? (
           <>
             <EndCard state={mapState} setState={setMapState}/>
           </>): null}
 
-        <button 
+        {/* <button 
           className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
           onClick={()=>{
             setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )
@@ -222,7 +231,7 @@ const Map = () => {
                 )
             })            
             }
-              }>Marker</button>
+              }>Marker</button> */}
 
           
         </PathContext.Provider>

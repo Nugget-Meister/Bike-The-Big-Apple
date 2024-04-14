@@ -1,5 +1,6 @@
 #map {
-    height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
     border-radius: 1.5rem;
     margin: 0 auto;
 }
