@@ -10,3 +10,8 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./components/assets/Lato.ttf');
+}

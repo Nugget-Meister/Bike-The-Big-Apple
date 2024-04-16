@@ -12,6 +12,7 @@ export default {
     fontFamily: {
       'gotham-condensed': ['"Gotham Condensed"', 'sans-serif'],
       'gotham-condensed-bold': ['"Gotham Condensed Bold"', 'sans-serif'],
+      'lato': ['Lato', 'sans-serif']
     },
     extend: {
       colors: {
