@@ -160,7 +160,7 @@ const Map = () => {
       })
       .then((res1) => {
         console.log(2)
-        // trackUser()
+        trackUser()
         return res1
       }).then((resA) => {
         calcRouteDrive(path).then(((resB) => {
