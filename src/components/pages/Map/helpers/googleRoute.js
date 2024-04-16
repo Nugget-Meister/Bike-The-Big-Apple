@@ -15,14 +15,6 @@ const loadRouteAPI = async (path, currentMap) => {
     let start = new google.maps.LatLng(path.start.geometry.location.lat(),path.start.geometry.location.lng());
     let end = new google.maps.LatLng(path.destination.geometry.location.lat(),path.destination.geometry.location.lng());
 
-    let mapOptions = {
-        zoom: 7,
-        center: start,
-        mapId: "907719a626af6b66"
-    }
-
-    // let map = new google.maps.Map(document.getElementById('map'), mapOptions)
-    
     let request = {
         origin: start, 
         destination: end, 
@@ -33,33 +25,63 @@ const loadRouteAPI = async (path, currentMap) => {
     let route = {};
 
     // Generate route
-
-    let returnedObject = {
-        route: 1
-    }
+    console.log(directionsService)
     
     return directionsService.route(request, (result, status) => {
         if (status == "OK") {
-            // console.log(result)
             directionsRenderer.setMap(currentMap)
             directionsRenderer.setDirections(result)
-            route = result
         }
     })
 
-    // return result
-
-    // console.log(path.start.geometry.location.lat())
-    // console.log(path.start.geometry.location.lng())
-    // console.log(path.destination.geometry.location.lat())
-    // console.log(path.destination.geometry.location.lng())
-
-
-
-     
 }
 
 
+const calcRouteDrive = async (path) => {
+
+    // Need to remove extra map import w/ state at some point
+    const { Map } = await google.maps.importLibrary("maps");
+    const { DirectionsService } = await google.maps.importLibrary("routes");
+
+    let directionsService = new google.maps.DirectionsService();
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+
+    // Init variables
+
+    let start = new google.maps.LatLng(path.start.geometry.location.lat(),path.start.geometry.location.lng());
+    let end = new google.maps.LatLng(path.destination.geometry.location.lat(),path.destination.geometry.location.lng());
+    
+    let request = {
+        origin: start, 
+        destination: end, 
+        travelMode: 'DRIVING',
+        provideRouteAlternatives: false,
+    }
+    // Generate route
+    
+    return directionsService.route(request, (result, status) => {
+    })
+}
+
+
+
+const calcDifference = (routeA, routeB) => {
+let sumBike = 0;
+let sumDrive = 0;
+console.log(routeA.routes[0].legs, routeB.routes[0].legs)
+    for(let leg of routeA.routes[0].legs){
+        sumBike += leg.distance.value
+    }
+    for(let leg of routeB.routes[0].legs){
+        sumDrive += leg.distance.value
+    }
+    console.log(sumBike, sumDrive, ((sumBike-sumDrive)/sumDrive)*100)
+
+    return (((sumBike-sumDrive)/sumDrive)*100)
+}
+
 export {
     loadRouteAPI,
+    calcRouteDrive,
+    calcDifference,
 };
