@@ -3,8 +3,8 @@ import { React, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "../public/styles.css"
 
-import Logout from "./components/subcomponents/Login/logoutButton";
-import Login from "./components/subcomponents/Login/loginButton";
+import Logout from "./components/subcomponents/Login/logout";
+import Login from "./components/subcomponents/Login/login";
 
 import NavBar from './components/NavBar/NavBar.jsx'
 

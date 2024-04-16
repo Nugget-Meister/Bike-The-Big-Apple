@@ -1,8 +1,8 @@
 // import Container from "react-bootstrap/Container";
 // // import Nav from "react-bootstrap/Nav";
 // // import Navbar from "react-bootstrap/Navbar";
-import Login from "../subcomponents/Login/loginButton.jsx";
-import Logout from "../subcomponents/Login/logoutButton.jsx";
+import Login from "../subcomponents/Login/login.jsx";
+import Logout from "../subcomponents/Login/logout.jsx";
 import ProfileButton from "../pages/Profile/ProfileButton.jsx";
 import React, { useState } from 'react';
 
