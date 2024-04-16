@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Splash.css';
 import { useNavigate } from 'react-router-dom';
 import LoadingScreen from '../../common/loadingScreen.jsx';
+import { signInWithGoogle } from '../../../../fireBase';
 
 const Splash = () => {
     const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Splash = () => {
         await new Promise(resolve => setTimeout(resolve, Math.random() * (3000 - 500) + 500));
         
         // setAnimationName('shrinkToCircle');
+        
+        await signInWithGoogle(); // Sign in with Google
         
         setTimeout(() => {
             setIsLoading(false);
