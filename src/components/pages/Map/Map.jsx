@@ -12,7 +12,7 @@ import SearchBox from './subcomponents/SearchBox/SearchBox.jsx';
 
 import { useState, useRef, createContext, useContext } from 'react';
 import { PathContext } from './helpers/pathContext.js';
-import { loadRouteAPI } from './helpers/googleRoute.js';
+import { loadRouteAPI, calcRouteDrive, calcDifference } from './helpers/googleRoute.js';
 import { getUserCoords } from './helpers/userTracker.js';
 
 import Form from '../../common/Form/Form.jsx';
@@ -76,24 +76,24 @@ const Map = () => {
   // User Tracker
 
   const trackUser = async () => {
-    console.log("Attempting to track user", "isTracking:", mapState.isTracking, appRef.current.isTracking)
+    // console.log("Attempting to track user", "isTracking:", mapState.isTracking, appRef.current.isTracking)
 
     console.log(appRef.current.isTracking)
     if(appRef.current.isTracking){
       let interval = setInterval(() => {
-            console.log("Tracker Status: ", appRef.current.isTracking)
+            // console.log("Tracker Status: ", appRef.current.isTracking)
             getUserCoords().then((res)=>{
-              console.log(res)
+              // console.log(res)
               const markerCoords = {
                 lat: res.latitude,
                 lng: res.longitude,
               };
                 console.log(markerCoords)
                 if(appRef.current.userMarker){
-                  console.log("updating marker")
+                  // console.log("updating marker")
                   updateMarker(appRef.current.userMarker, markerCoords)
                 } else{
-                  console.log("new marker")
+                  // console.log("new marker")
                   setMarker(mapState.activeMap, markerCoords, "You")
                   .then((res) => {
                     console.log(res)
@@ -124,6 +124,7 @@ const Map = () => {
         })
       }
 
+
     // Load/reload autocompletes if route is not finalized
       if(!mapState.selectedRoute){
         loadAutoComplete('start', 'start_details', 'Enter starting location.', path, setPath)
@@ -144,7 +145,8 @@ const Map = () => {
 
     if(!firstLoad){
       console.log(1)
-      loadRouteAPI(path, mapState.activeMap).then((res) => {
+      loadRouteAPI(path, mapState.activeMap)
+      .then((res) => {
         console.log(res)
         setMapState(
           {
@@ -154,11 +156,21 @@ const Map = () => {
             steps: res.routes[0].legs[0].steps
           });
           appRef.current.isTracking = true
+          return res
       })
-      .then(() => {
+      .then((res1) => {
         console.log(2)
-        trackUser()
+        // trackUser()
+        return res1
+      }).then((resA) => {
+        calcRouteDrive(path).then(((resB) => {
+         console.log(calcDifference(resA, resB))
+        }))
       })
+
+
+
+
     }
 
       
