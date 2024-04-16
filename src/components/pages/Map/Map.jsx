@@ -39,11 +39,11 @@ const Map = () => {
 
   useEffect(() => {
    
-  //   if(firstLoad){
-  //     loadAPI().then(() => {
-  //       loadQueue()
-  //   })
-  // }
+    if(firstLoad){
+      loadAPI().then(() => {
+        loadQueue()
+    })
+  }
 
     if(!firstLoad){
       console.log("Path updated... Reloading Queue")
