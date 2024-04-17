@@ -202,7 +202,7 @@ const Map = () => {
    
 
 
-    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
     
     
     return (
