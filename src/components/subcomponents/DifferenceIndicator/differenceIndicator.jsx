@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import '../../common/loadingScreen.css';
+
 function DifferenceIndicator({ percentage }) {
 
-    let animList = ['', 'shrinkToCircle', 'expandFromCircle', 'simpleEase']
+    let animList = ['', 'shrinkToCircle', 'expandFromCircle', 'simpleEase', 'alphaEaseOut']
 
     const [itemState, updateItemState] = useState({
         animName: animList[3],
-        isHidden: false
+        isHidden: false,
+        bgAnim: ''
     })
 
     // const [animName, updateAnimName] = useState({animList[3]})
@@ -15,10 +17,10 @@ function DifferenceIndicator({ percentage }) {
 
     if (percentage > 0) {
         header = "Enjoy the Scenery";
-        message = `Looks like our bike route is ${percentage}% longer, but we're avoiding some dangerous roads in the process.`;
+        message = `Looks like our bike route is ${percentage.toFixed(0)}% longer, but we're avoiding some dangerous roads in the process.`;
     } else if(percentage < 0){
         header = "Safer and Faster";
-        message = `Your bike route is ${percentage * -1}% shorter... and safer!`;
+        message = `Your bike route is ${(percentage * -1).toFixed(0)}% shorter... and safer!`;
     } else {
         header = "Safest route possible"
         message = "We crunched the numbers and you are getting the safest route possible!"
@@ -26,7 +28,11 @@ function DifferenceIndicator({ percentage }) {
 
 
     const hideElement = async () => {
-        updateItemState({...itemState, animName: animList[1]})
+        updateItemState({
+            ...itemState, 
+            animName: animList[1],
+            bgAnim: animList[4],
+        })
         setTimeout(() => {
             updateItemState({...itemState, isHidden: true})
         }, 800);
@@ -37,9 +43,11 @@ function DifferenceIndicator({ percentage }) {
         style={{
             animation: `${itemState.animName} 1s ease-in-out`,
         }}
-        className={`flex items-center justify-center min-h-screen ${itemState.isHidden ? "hidden": ""}`}>
+        className={`z-30 fixed items-center top-64 justify-center min-h-screen ${itemState.isHidden ? "hidden": ""}`}>
         <div 
-
+            style={{
+                animation: `${itemState.bgAnim} 1s ease-in-out both`,
+            }}
             className="w-3/4 mx-auto bg-bike-off-white shadow-2xl rounded-lg p-8 text-center">
             <h1 className="text-2xl font-bold mb-4">{header}</h1>
             <p className="text-lg mb-6">{message}</p>
