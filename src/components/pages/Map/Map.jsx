@@ -23,6 +23,7 @@ import NavCard from './subcomponents/NavCard/NavCard.jsx';
 import EndCard from './subcomponents/EndCard/EndCard.jsx';
 
 import LoadingScreen from '../../common/loadingScreen.jsx';
+import DifferenceIndicator from '../../subcomponents/DifferenceIndicator/differenceIndicator.jsx';
 
 
 
@@ -62,7 +63,8 @@ const Map = () => {
     steps: {},            // listed steps in route
     currentStep: 0,       // index for current step in route
     activeMap: false,     // holds reference to loaded map
-    userMarker: null
+    userMarker: null,
+    difference: null,
   })
 
   // Refs for use when refresh is not wanted.
@@ -146,39 +148,61 @@ const Map = () => {
     if(!firstLoad){
       console.log(1)
       loadRouteAPI(path, mapState.activeMap)
-      .then((res) => {
-        console.log(res)
-        setMapState(
-          {
-            ...mapState,
-            selectedRoute: true,
-            isTracking: true, 
-            steps: res.routes[0].legs[0].steps
+      .then((resA) => {
+        calcRouteDrive(path)
+        .then((resB) => {
+          console.log(calcDifference(resA, resB))
+          setMapState(
+            {
+              ...mapState,
+              selectedRoute: true,
+              isTracking: true, 
+              steps: resA.routes[0].legs[0].steps,
+              difference: calcDifference(resA, resB)})
           });
-          appRef.current.isTracking = true
-          return res
+            appRef.current.isTracking = true
+        })
+      .then(() => {
+        // trackUser()
       })
-      .then((res1) => {
-        console.log(2)
-        trackUser()
-        return res1
-      }).then((resA) => {
-        calcRouteDrive(path).then(((resB) => {
-         console.log(calcDifference(resA, resB))
-        }))
-      })
+    }  
 
 
 
 
-    }
-
-      
-    }
+    // if(!firstLoad){
+    //   console.log(1)
+    //   loadRouteAPI(path, mapState.activeMap)
+    //   .then((res) => {
+    //     console.log(res)
+    //     setMapState(
+    //       {
+    //         ...mapState,
+    //         selectedRoute: true,
+    //         isTracking: true, 
+    //         steps: res.routes[0].legs[0].steps
+    //       });
+    //       appRef.current.isTracking = true
+    //       return res
+    //   })
+    //   .then((resA) => {
+    //     // Artificial inbetween for user tracking, only for testing can be combined
+    //     // trackUser()
+    //     console.log(mapState)
+    //     //Calculate the best path to direction w/o bike accounting
+    //     calcRouteDrive(path)
+    //     .then((resB) => {
+    //       setMapState({
+    //         ...mapState, 
+    //         difference: calcDifference(resA, resB)})
+    //     })
+    //   })
+    // }  
+  }
    
 
 
-    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    let buttonClassName = "w-full bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
     
     
     return (
@@ -194,7 +218,9 @@ const Map = () => {
             <br />
           </>
           ):(<></>)}
-          
+
+          {mapState.difference != null ? (<DifferenceIndicator percentage={mapState.difference}/>) : null}
+
           {!mapState.isTracking && !mapState.endedRoute ? (
             <>
               <Card className={""}>
@@ -223,29 +249,13 @@ const Map = () => {
               />
               <button 
               onClick={()=> endRoute()}
-              className={buttonClassName + " absolute z-30"}>End Route</button>
+              className={buttonClassName + " fixed z-30"}>End Route</button>
             </>): null}
         {!mapState.isTracking && mapState.endedRoute ? (
           <>
             <EndCard state={mapState} setState={setMapState}/>
           </>): null}
-
-        {/* <button 
-          className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
-          onClick={()=>{
-            setMarker(mapState.activeMap, {lat: 40.7414836, lng: -73.9489162},"bing bong" )
-            .then(res => {
-              // console.log(res)
-              // console.log(res.position)
-              setMapState({
-                ...mapState, 
-                userMarker: res}
-                )
-            })            
-            }
-              }>Marker</button> */}
-
-          
+         
         </PathContext.Provider>
         <MapWidget/>
       </>
