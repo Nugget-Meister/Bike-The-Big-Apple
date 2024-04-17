@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { getUserCoords } from './Map/helpers/userTracker';
 import { useEffect, useRef } from 'react';
 import NavCard from './Map/subcomponents/NavCard/NavCard';
-
+import DifferenceIndicator from '../subcomponents/DifferenceIndicator/differenceIndicator.jsx';
 import { data } from './testdata.js';
 
 const Testing = () => {
@@ -60,6 +60,8 @@ const Testing = () => {
         
         return (
             <div className='shmongus'>
+
+                <DifferenceIndicator percentage={-13}/>
                 {/*  map into opject to return list */}
                 {/* {testString.map((step)=> {
                     return <NavCard text={step.instructions.replaceAll("<b>","").replaceAll("</b>","")}/>
