@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: 'Gotham Condensed Bold';
-    src: url('./components/assets/Gotham\ Condensed\ Bold.otf') format('opentype');
+    src: url('./public/Gotham\ Condensed\ Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('./components/assets/Lato.ttf');
+    src: url('./public/Lato.ttf');
 }
