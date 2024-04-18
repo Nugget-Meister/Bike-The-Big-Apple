@@ -614,6 +614,10 @@ video {
   top: 0.75rem;
 }
 
+.top-64{
+  top: 16rem;
+}
+
 .top-\[10\%\]{
   top: 10%;
 }
@@ -882,6 +886,10 @@ video {
   justify-content: center;
 }
 
+.justify-between{
+  justify-content: space-between;
+}
+
 .justify-around{
   justify-content: space-around;
 }
@@ -894,6 +902,12 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(3rem * var(--tw-space-x-reverse));
   margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]){
