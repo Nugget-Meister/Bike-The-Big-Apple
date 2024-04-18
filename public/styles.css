@@ -1294,7 +1294,7 @@ video {
 @font-face {
   font-family: 'Gotham Condensed Bold';
 
-  src: url('./public/Gotham\ Condensed\ Bold.otf') format('opentype');
+  src: url('./Gotham\ Condensed\ Bold.otf') format('opentype');
 
   font-weight: bold;
 
@@ -1304,7 +1304,7 @@ video {
 @font-face {
   font-family: 'Lato';
 
-  src: url('./public/Lato.ttf');
+  src: url('./Lato.ttf');
 }
 
 .hover\:bg-bike-light-blue:hover{
