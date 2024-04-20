@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Lato';
-    src: url('./Lato.ttf') format('truetype');
+    /* src: url('./Lato.ttf') format('truetype'); */
+    src: url('/public/Lato.ttf') format('truetype');
 }
 
 @keyframes dropAndBounce {

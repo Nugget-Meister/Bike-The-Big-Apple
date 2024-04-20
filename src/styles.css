@@ -6,12 +6,13 @@
 
 @font-face {
     font-family: 'Gotham Condensed Bold';
-    src: url('./Gotham\ Condensed\ Bold.otf') format('opentype');
+    src: url('/public/Gotham.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('./Lato.ttf');
+    src: url('/public/Lato.ttf') format('truetype');
+
 }
