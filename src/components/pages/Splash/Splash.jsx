@@ -15,12 +15,14 @@ const Splash = () => {
         
         // setAnimationName('shrinkToCircle');
         
-        await signInWithGoogle(); // Sign in with Google
+        await signInWithGoogle()
+        .then(res => {
+            setTimeout(() => {
+                setIsLoading(false);
+                navigate('/map');
+            }, 1000);
+        })
         
-        setTimeout(() => {
-            setIsLoading(false);
-            navigate('/map');
-        }, 1000);
     };
 
     return (
