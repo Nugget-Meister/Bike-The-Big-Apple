@@ -164,7 +164,7 @@ const Map = () => {
             appRef.current.isTracking = true
         })
       .then(() => {
-        // trackUser()
+        trackUser()
       })
     }  
 
