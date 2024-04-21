@@ -22,10 +22,14 @@ const Splash = () => {
         .then(()=> {
             auth.onAuthStateChanged(async (user) => {
                 console.log(user)
-                 setTimeout(() => {
-                    setIsLoading(false);
-                    navigate('/map');
-                }, 1000);
+                if(user){
+                    setTimeout(() => {
+                       setIsLoading(false);
+                       navigate('/map');
+                   }, 1000);
+                } else {
+                    alert("Unable to sign in. Please refresh page and try again.")
+                }
             })
         })
     };
