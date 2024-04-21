@@ -28,7 +28,8 @@ const Splash = () => {
                        navigate('/map');
                    }, 1000);
                 } else {
-                    alert("Unable to sign in. Please refresh page and try again.")
+                    alert("Unable to sign in. Please try again later.")
+                    navigate('/')
                 }
             })
         })
