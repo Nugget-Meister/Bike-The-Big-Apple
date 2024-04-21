@@ -11,6 +11,7 @@ const Splash = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [animationName, setAnimationName] = useState('expandFromCircle');
 
+    const [user, setUser] = useState(null)
     const handleStartBikingClick = async () => {
         setIsLoading(true);
         await new Promise(resolve => setTimeout(resolve, Math.random() * (3000 - 500) + 500));
@@ -18,19 +19,14 @@ const Splash = () => {
         // setAnimationName('shrinkToCircle');
 
         await signInWithGoogle()
-        // .then(res => {
-        //     setTimeout(() => {
-        //         setIsLoading(false);
-        //         navigate('/map');
-        //     }, 1000);
-        // })
-
-        auth.onAuthStateChanged(async (user) => {
-            console.log(user)
-             setTimeout(() => {
-                setIsLoading(false);
-                navigate('/map');
-            }, 1000);
+        .then(()=> {
+            auth.onAuthStateChanged(async (user) => {
+                console.log(user)
+                 setTimeout(() => {
+                    setIsLoading(false);
+                    navigate('/map');
+                }, 1000);
+            })
         })
     };
 
