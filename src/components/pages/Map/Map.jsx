@@ -24,7 +24,7 @@ import EndCard from './subcomponents/EndCard/EndCard.jsx';
 
 import LoadingScreen from '../../common/loadingScreen.jsx';
 import DifferenceIndicator from '../../subcomponents/DifferenceIndicator/differenceIndicator.jsx';
-
+import ProfileButton from '../Profile/ProfileButton.jsx';
 
 
 const Map = () => {
@@ -115,6 +115,7 @@ const Map = () => {
 
   const loadQueue = () => {
       console.log("current value: ", path, firstLoad)
+
       if(firstLoad){
         setfirstLoad(false);
         renderMap()
@@ -225,9 +226,9 @@ const Map = () => {
             <>
               <Card className={""}>
                 <Form onSubmit={handleSubmit}>
-                  <SearchBox id='start'/>
+                  <SearchBox id='start' placeholder={'Pick a Starting Location'}/>
                   <div className="pb-2 text-white" id="start_details">{''}</div>
-                  <SearchBox id='destination'/>
+                  <SearchBox id='destination' placeholder={'Pick a Destination'}/>
                   <div className="pb-4 text-white" id="destination_details">{''}</div>
                   <Button 
                     type='submit'
@@ -258,6 +259,7 @@ const Map = () => {
          
         </PathContext.Provider>
         <MapWidget/>
+        <ProfileButton/>
       </>
     );
 }
