@@ -5,6 +5,7 @@ import LoadingScreen from '../../common/loadingScreen.jsx';
 import { signInWithGoogle } from '../../../../fireBase';
 import { getAuth, getRedirectResult, GoogleAuthProvider} from "firebase/auth";
 import { auth } from '../../../../fireBase';
+import { createUser } from '../../apicalls.js';
 
 const Splash = () => {
     const navigate = useNavigate();
@@ -21,14 +22,15 @@ const Splash = () => {
         await signInWithGoogle()
         .then(()=> {
             auth.onAuthStateChanged(async (user) => {
-                console.log(user)
-                if(user){
+                console.log(user.email)
+                if(user.email){
+                    createUser(user.email)
                     setTimeout(() => {
                        setIsLoading(false);
                        navigate('/map');
                    }, 1000);
                 } else {
-                    alert("Unable to sign in. Please try again later.")
+                    // alert("Unable to sign in. Please try again later.")
                     navigate('/')
                 }
             })

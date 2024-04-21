@@ -4,7 +4,7 @@ const NavCard = ({image, setState, state}) => {
 
     const updateValue = (value) => {
         // console.log(state.currentStep + value)
-        if(state.currentStep + value >= 0 && state.currentStep + value < state.steps.length) {
+        if(state.currentStep + value >= 0 && state.currentStep + value < state.steps.steps.length) {
             setState({...state, currentStep: state.currentStep + value})
         } else {
             console.log("max or min value exceeded")
@@ -13,7 +13,7 @@ const NavCard = ({image, setState, state}) => {
     }
 
     const parseInstruction = (text) => {
-        console.log(state.currentStep, state.steps.length)
+        console.log(state.currentStep, state.steps.steps.length)
         try {
             return text.replaceAll("<b>","")
             .replaceAll("</b>"," ")
@@ -42,10 +42,10 @@ const NavCard = ({image, setState, state}) => {
             </div>
             <div className='font-gotham-condensed-bold text-2xl flex-1 max-w-xs p-2 text-center'>
                 {/* <p>ss</p> */}
-                {parseInstruction(state.steps[state.currentStep].instructions)}
+                {parseInstruction(state.steps.steps[state.currentStep].instructions)}
             </div>
             <div className='inline-flex'>
-            {state.currentStep <= state.steps.length-2 ? (
+            {state.currentStep <= state.steps.steps.length-2 ? (
                 <>
                     <button
                         className='bg-custom-red hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
