@@ -1,27 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Splash.css';
 import { useNavigate } from 'react-router-dom';
 import LoadingScreen from '../../common/loadingScreen.jsx';
 import { signInWithGoogle } from '../../../../fireBase';
+import { getAuth, getRedirectResult, GoogleAuthProvider} from "firebase/auth";
+import { auth } from '../../../../fireBase';
 
 const Splash = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [animationName, setAnimationName] = useState('expandFromCircle');
 
+    const [user, setUser] = useState(null)
     const handleStartBikingClick = async () => {
         setIsLoading(true);
         await new Promise(resolve => setTimeout(resolve, Math.random() * (3000 - 500) + 500));
         
         // setAnimationName('shrinkToCircle');
-        
-        await signInWithGoogle(); // Sign in with Google
-        
-        setTimeout(() => {
-            setIsLoading(false);
-            navigate('/map');
-        }, 1000);
+
+        await signInWithGoogle()
+        .then(()=> {
+            auth.onAuthStateChanged(async (user) => {
+                console.log(user)
+                if(user){
+                    setTimeout(() => {
+                       setIsLoading(false);
+                       navigate('/map');
+                   }, 1000);
+                } else {
+                    alert("Unable to sign in. Please try again later.")
+                    navigate('/')
+                }
+            })
+        })
     };
+
 
     return (
         <div className="bg-[#FCFFE7] flex flex-col justify-start items-center pt-8 pb-8 min-h-screen">
