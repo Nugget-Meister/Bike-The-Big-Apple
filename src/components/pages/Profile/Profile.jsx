@@ -1,13 +1,37 @@
 import RiderStatisticBoxes from "../../subcomponents/RiderStatistics/RiderStatisticsBoxes";
 import UserCard from "../../subcomponents/UserCard/UserCard";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../Providers/AuthProvider";
 import "./Profile.css";
 import Logout from "../../subcomponents/Login/logout";
 import userIcon from '../../../../public/user.svg'
+import { getUserInfo } from "../../apicalls";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Profile = () => {
+  const [userStats, setUserStats] = useState({})
+  const [authObj, setAuthObj] = useState({})
   const userData = useAuthContext();
+
+  // console.log(getAuth().currentUser.metadata)
+
+  useEffect(()=> {
+    let auth = getAuth();
+
+    setTimeout(() => {
+      console.log(userData)
+      getUserInfo(userData.email)
+      .then((res) => {
+        // console.log(res.data)
+        if(res.data){
+          setUserStats(res.data)
+          setAuthObj(auth.currentUser.metadata.creationTime)
+        }
+      })
+    }, 1000);
+
+    
+  }, [userData])
   return (
     <div className="min-h-screen bg-bike-blue flex flex-col items-center px-4 py-8">
       <img
@@ -48,23 +72,46 @@ const Profile = () => {
       </h2>
 
       <div className="grid grid-cols-2 gap-12 mt-5">
-        {Array.from({ length: 4 }).map((_, index) => (
           <div
-            key={index}
             className="p-8 bg-bike-off-white rounded-lg shadow-md"
           >
             <h3 className="text-md font-semibold">
-              Achievement Header {index + 1}
+              Total Distance
             </h3>
-            <p className="text-sm text-gray-500">Achievement {index + 1}</p>
+            <p className="text-sm text-gray-500">{userStats.total_distance != undefined ? userStats.total_distance : 'N/A' }</p>
           </div>
-        ))}
+          <div
+            className="p-8 bg-bike-off-white rounded-lg shadow-md"
+          >
+            <h3 className="text-md font-semibold">
+              Routes Completed
+            </h3>
+            <p className="text-sm text-gray-500">{userStats.routes_completed != undefined ? userStats.routes_completed : 'N/A' }</p>
+          </div>
+          <div
+            className="p-8 bg-bike-off-white rounded-lg shadow-md"
+          >
+            <h3 className="text-md font-semibold">
+              Checkpoints Completed
+            </h3>
+            <p className="text-sm text-gray-500">{userStats.total_checkpoints != undefined ? userStats.total_checkpoints : 'N/A' }</p>
+          </div>
+          <div
+            className="p-8 bg-bike-off-white rounded-lg shadow-md"
+          >
+            <h3 className="text-md font-semibold">
+              Account Created
+            </h3>
+            <p className="text-sm text-gray-500">{authObj || 'N/A'}</p>
+          </div>
       </div>
 
       <div className="w-11/12 h-1 bg-white mt-5"></div>
-      <h2 className="self-start text-lg font-semibold mt-5 text-bike-off-white">
+      {/* <h2 className="self-start text-lg font-semibold mt-5 text-bike-off-white">
         Achievements
       </h2>
+      
+      
       <div className="flex mt-5 space-x-12">
         {Array.from({ length: 5 }).map((_, index) => (
           <svg
@@ -80,7 +127,7 @@ const Profile = () => {
             />
           </svg>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
