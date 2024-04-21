@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Splash.css';
 import { useNavigate } from 'react-router-dom';
 import LoadingScreen from '../../common/loadingScreen.jsx';
 import { signInWithGoogle } from '../../../../fireBase';
+import { getAuth, getRedirectResult, GoogleAuthProvider} from "firebase/auth";
+import { auth } from '../../../../fireBase';
 
 const Splash = () => {
     const navigate = useNavigate();
@@ -14,16 +16,24 @@ const Splash = () => {
         await new Promise(resolve => setTimeout(resolve, Math.random() * (3000 - 500) + 500));
         
         // setAnimationName('shrinkToCircle');
-        
+
         await signInWithGoogle()
-        .then(res => {
-            setTimeout(() => {
+        // .then(res => {
+        //     setTimeout(() => {
+        //         setIsLoading(false);
+        //         navigate('/map');
+        //     }, 1000);
+        // })
+
+        auth.onAuthStateChanged(async (user) => {
+            console.log(user)
+             setTimeout(() => {
                 setIsLoading(false);
                 navigate('/map');
             }, 1000);
         })
-        
     };
+
 
     return (
         <div className="bg-[#FCFFE7] flex flex-col justify-start items-center pt-8 pb-8 min-h-screen">
