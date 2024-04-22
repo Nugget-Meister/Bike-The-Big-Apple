@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-const EndCard = ({data, state, setState}) => {
+const EndCard = ({data}) => {
 
+    
+console.log(data)
     let navigate = useNavigate();
     return (
         <div className='font-gotham-condensed-bold z-20 w-full fixed bottom-0 bg-bike-blue h-1/2 overflow-auto'>
@@ -12,15 +14,15 @@ const EndCard = ({data, state, setState}) => {
             <div className='grid grid-cols-2 text-center'>
                 <div className='text-1xl p-2 pl-8 text-white font-sans'>
                     <div>Distance Traveled</div>
-                    <div>0.5 miles</div>
+                    <div>{data.distance.text || undefined}</div>
                 </div>
                 <div className='text-1xl p-2 pl-8 text-white font-sans'>
                     <div>Checkpoints</div>
-                    <div>3</div>
+                    <div>{data.steps.length || undefined}</div>
                 </div>
                 <div className='text-1xl p-2 pl-8 text-white font-sans'>
                     <div>Travel Time</div>
-                    <div>7 minutes</div>
+                    <div>{data.duration.text || undefined}</div>
                 </div>
                 <div className='text-1xl p-2 pl-8 text-white font-sans'>
                     <div>Route Completed</div>
