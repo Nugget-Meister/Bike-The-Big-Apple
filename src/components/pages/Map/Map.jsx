@@ -158,7 +158,7 @@ const Map = () => {
               ...mapState,
               selectedRoute: true,
               isTracking: true, 
-              steps: resA.routes[0].legs[0].steps,
+              steps: resA.routes[0].legs[0],
               difference: calcDifference(resA, resB)})
           });
             appRef.current.isTracking = true
@@ -254,7 +254,7 @@ const Map = () => {
             </>): null}
         {!mapState.isTracking && mapState.endedRoute ? (
           <>
-            <EndCard state={mapState} setState={setMapState}/>
+            <EndCard data={mapState.steps}/>
           </>): null}
          
         </PathContext.Provider>
