@@ -1,8 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Bike the Big Apple
+[Back-end](https://github.com/Nugget-Meister/Bike-The-Big-Apple-BE)
+Hi, Welcome to the soure repo for Bike the Big Apple's front end! Right now its a little sparse, but as time goes one, more documentation on the components will go here.
